@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пані Тека — помічник з документами в Польщі</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1f5bff;--blue2:#1747d6;--ink:#0e1a36;--gray:#5d667d;--line:#e4e9f4;--soft:#eef3ff;--bg:#f7f9fe;--amber:#ffe9a8;--pink:#ffd9df}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#fff 0,var(--bg) 600px,#fff 1400px);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;line-height:1.1;letter-spacing:-.02em}
+.root .ru,.root .pl{display:none}
+.root:has(#lru:checked) .ru{display:inline}
+.root:has(#lru:checked) .ua,.root:has(#lpl:checked) .ua{display:none}
+.root:has(#lpl:checked) .pl{display:inline}
+.root:has(#lpl:checked) div.pl,.root:has(#lpl:checked) p.pl{display:block}
+.root:has(#lru:checked) div.ru,.root:has(#lru:checked) p.ru{display:block}
+.root div.ua,.root p.ua{display:block}
+.root:has(#lru:checked) .lbl-ru,.root:has(#lua:checked) .lbl-ua,.root:has(#lpl:checked) .lbl-pl{background:#dfe9ff;color:var(--blue)}
+.lg{position:absolute;opacity:0;pointer-events:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.nav{display:flex;align-items:center;gap:28px;padding:18px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:24px;text-decoration:none;letter-spacing:-.02em}
+.menu{display:flex;gap:28px;margin-left:24px;flex:1}
+.menu a{text-decoration:none;font-weight:500;font-size:15px}
+.menu a:hover{color:var(--blue)}
+.langs{display:flex;gap:2px}
+.langs label{padding:8px 14px;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;color:var(--gray)}
+.pro{border:1.5px solid var(--ink);border-radius:12px;padding:10px 18px;font-weight:600;font-size:15px;text-decoration:none;background:#fff}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:20px;align-items:center;padding:34px 0 40px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--blue);text-transform:uppercase;margin-bottom:26px}
+.hero h1{font-size:clamp(34px,4.5vw,56px);font-weight:800;line-height:1.08;white-space:nowrap}
+.sw{position:relative;display:inline-block}
+.sw svg{position:absolute;left:0;bottom:-14px;width:100%;height:16px}
+.lead{font-size:20px;color:var(--gray);margin:34px 0;max-width:470px}
+.cta{display:inline-flex;align-items:center;gap:14px;background:linear-gradient(180deg,#2d6bff,#1747d6);color:#fff;font-weight:600;font-size:19px;padding:20px 30px;border-radius:14px;text-decoration:none;box-shadow:0 12px 26px #1f5bff44}
+.cta svg{width:26px;height:26px}
+.perks{display:flex;align-items:center;gap:14px;margin-top:28px;color:var(--gray);font-size:15px;flex-wrap:wrap}
+.perks svg{width:22px;height:22px;vertical-align:-5px;margin-right:6px;color:var(--gray)}
+.stage{position:relative;height:500px}
+.paper{position:absolute;left:0;top:30px;width:330px;height:410px;background:#fff;border-radius:6px;box-shadow:0 20px 50px #1b2b5522,0 2px 6px #1b2b5514;transform:rotate(-4deg);padding:28px 26px;font-size:13px;line-height:1.5;color:#333}
+.paper .org{font-weight:800;font-size:12px;line-height:1.25;color:#2a6b3a;border-left:3px solid #2a6b3a;padding-left:8px;margin-bottom:22px}
+.paper .dt{position:absolute;right:20px;top:22px;font-size:11px;color:#666}
+.paper h4{font-size:19px;margin:6px 0 16px;letter-spacing:0}
+.hl{background:var(--pink);border-radius:4px;padding:0 4px}
+.paper .bar{height:10px;background:#e7eaf1;border-radius:3px;margin-top:10px}
+.phone{position:absolute;right:0;top:0;width:275px;background:#0f1b3d;border-radius:38px;padding:10px;box-shadow:0 30px 60px #0e1a3644}
+.phone .sb{display:flex;justify-content:space-between;color:#fff;font-size:12px;font-weight:600;padding:8px 18px 4px}
+.phone .hd{display:flex;align-items:center;gap:10px;color:#fff;padding:8px 12px 12px}
+.phone .av{width:34px;height:34px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center}
+.phone .av svg{width:18px;height:18px}
+.phone .hd b{display:block;font-size:14px;line-height:1.1}
+.phone .hd small{opacity:.7;font-size:11px}
+.msg{background:#fff;border-radius:22px;padding:14px 14px 12px;font-size:12px;line-height:1.4}
+.msg .t{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:12.5px;margin-bottom:8px}
+.badge{display:inline-block;background:var(--amber);border-radius:10px;padding:2px 9px;font-weight:700;font-size:11.5px}
+.msg .r{display:grid;grid-template-columns:20px 1fr;gap:8px;padding:8px 0;border-top:1px solid var(--line)}
+.msg .r svg{width:18px;height:18px;color:var(--blue)}
+.msg .r b{display:block;font-size:12px}
+.msg .r span{color:#444}
+.msg .btns{display:flex;gap:8px;margin-top:8px}
+.msg .btns div{flex:1;text-align:center;border:1px solid var(--line);border-radius:10px;padding:8px 4px;font-weight:600;font-size:11.5px}
+.msg .btns .p{background:var(--blue);color:#fff;border-color:var(--blue)}
+.strip{display:grid;grid-template-columns:1.2fr .6fr 1fr .6fr 1.1fr;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px 30px;box-shadow:0 6px 24px #1b2b550a}
+.strip .h{font-weight:700;font-size:16px;line-height:1.3}
+.inst{display:flex;align-items:center;gap:12px;border-left:1px solid var(--line);padding-left:20px}
+.inst svg{width:38px;height:38px;color:var(--blue);flex:none}
+.inst b{display:block;font-size:16px;white-space:nowrap;letter-spacing:-.01em}
+.inst small{display:block;color:var(--gray);font-size:13px;line-height:1.2}
+.sec{padding:70px 0 10px}
+.sec h2{font-size:clamp(30px,3.8vw,46px);font-weight:800}
+.sec .sub{color:var(--gray);font-size:18px;max-width:600px;margin:12px 0 32px}
+.tabs input{position:absolute;opacity:0;pointer-events:none}
+.tabbar{display:flex;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.tabbar label{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 26px;font-weight:600;cursor:pointer;font-size:15px}
+.tabs:has(#t1:checked) label[for=t1],.tabs:has(#t2:checked) label[for=t2],.tabs:has(#t3:checked) label[for=t3]{background:#dfe9ff;border-color:#dfe9ff;color:var(--blue);box-shadow:0 4px 12px #1f5bff22}
+.pn{display:none;grid-template-columns:1fr 40px 1fr;gap:16px;align-items:center}
+.tabs:has(#t1:checked) .p1,.tabs:has(#t2:checked) .p2,.tabs:has(#t3:checked) .p3{display:grid}
+.orig{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 26px;box-shadow:0 6px 24px #1b2b550a}
+.orig .k{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:18px}
+.orig .k svg{width:26px;height:26px;color:var(--gray)}
+.orig .k small{font-weight:400;color:var(--gray)}
+.orig pre{margin:0;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:14px;line-height:1.8;white-space:pre-wrap;color:#2b3550}
+.arr{width:40px;height:40px;border-radius:50%;background:#dfe9ff;color:var(--blue);display:flex;align-items:center;justify-content:center}
+.expl{background:linear-gradient(180deg,#e8f0ff,#dbe7ff);border-radius:20px;padding:20px 20px 16px;box-shadow:0 6px 24px #1f5bff14}
+.expl .k{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.expl .k svg{width:26px;height:26px}
+.er{display:grid;grid-template-columns:30px 92px 1fr;gap:10px;align-items:start;background:#ffffffcc;padding:14px 16px;border-bottom:1px solid var(--line)}
+.er:first-of-type{border-radius:14px 14px 0 0}.er:last-child{border-radius:0 0 14px 14px;border-bottom:0}
+.er svg{width:24px;height:24px;color:var(--blue)}
+.er b{font-weight:700}
+.er span{font-size:14.5px}
+.hint{display:inline-block;background:var(--amber);border-radius:10px;padding:3px 12px;font-weight:600;font-size:14px}
+.note{font-size:13px;color:var(--gray);margin-top:12px}
+.how{background:linear-gradient(180deg,#eef3ff,#e6eeff);border-radius:28px;padding:30px;display:grid;grid-template-columns:.8fr 1fr 1fr 1fr;gap:18px;align-items:stretch;margin-top:60px}
+.how h2{font-size:30px}
+.how .s{margin-top:8px;background:#fff;border-radius:18px;padding:22px;position:relative;box-shadow:0 6px 20px #1b2b5510}
+.how .n{position:absolute;right:-8px;top:-10px;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.how .s svg{width:32px;height:32px;color:var(--blue);margin-bottom:10px}
+.how .s b{display:block;font-size:17px;margin-bottom:6px}
+.how .s p{margin:0;color:var(--gray);font-size:14px}
+.guide{align-self:start}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 6px 24px #1b2b550a}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{margin:0;color:var(--gray)}
+.pt{display:inline-block;border-radius:10px;padding:4px 12px;font-size:12px;font-weight:700;margin-bottom:12px}
+.pt.a{background:#ffe9e6;color:#c13d2d}.pt.b{background:#dcf6ef;color:#168a73}.pt.c{background:#fff1c6;color:#8a6200}.pt.d{background:#eaf2ff;color:#1c47b8}
+details.guide{cursor:pointer}
+details.guide summary{list-style:none;outline:none}
+details.guide summary::-webkit-details-marker{display:none}
+details.guide summary:after{content:"\25BE";display:block;margin-top:10px;font-weight:700;color:var(--blue)}
+details.guide[open] summary:after{content:"\25B4"}
+.gbody{margin-top:14px;border-top:1px dashed var(--line);padding-top:14px;cursor:auto;font-size:15px;line-height:1.55}
+.gbody h4{font-size:15px;margin:14px 0 6px;letter-spacing:0}
+.gbody ul{margin:0 0 8px;padding-left:20px}
+.gbody li{margin-bottom:5px}
+.gbody .warn{background:#fff6dc;border-radius:12px;padding:10px 14px;margin:12px 0;font-size:14px}
+.gbody .src{font-size:12.5px;color:var(--gray);margin-top:12px}
+.gbody .src a{text-decoration:underline}
+.gbody .cta{display:inline-block;margin-top:10px;background:var(--blue);color:#fff;border-radius:12px;padding:10px 20px;font-weight:600;font-size:15px;box-shadow:none}
+.sp .ph{width:60px;height:60px;border-radius:50%;background:#dfe9ff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:14px}
+.pill{display:inline-block;background:var(--soft);border-radius:10px;padding:3px 12px;font-size:13px;font-weight:600;margin:10px 6px 0 0;color:#1c47b8}
+.price{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.price .big{font-size:44px;font-weight:800;letter-spacing:-.03em;color:var(--blue)}
+.req{background:linear-gradient(180deg,#eef3ff,#e2ebff);border-radius:28px;padding:44px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.req h2{font-size:32px;max-width:520px}
+.req p{color:var(--gray);max-width:520px;margin:10px 0 0}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 24px;margin-bottom:12px}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{margin:10px 0 0;color:var(--gray)}
+.foot{margin-top:70px;border-top:1px solid var(--line);padding:36px 0 50px;color:var(--gray);font-size:14px}
+.foot .cols{display:flex;gap:40px;flex-wrap:wrap;justify-content:space-between}
+.foot a{display:block;margin-bottom:6px}
+
+.signin{font-weight:600;font-size:15px;text-decoration:none;padding:10px 14px;color:var(--ink)}
+.signin:hover{color:var(--blue)}
+.ovl{display:none;position:fixed;inset:0;background:#0f1a3a99;z-index:50;overflow:auto;padding:30px 16px;align-items:flex-start;justify-content:center}
+.ovl:target{display:flex}
+.box{background:#fff;border-radius:24px;padding:34px;width:100%;max-width:460px;position:relative;box-shadow:0 20px 60px #0f1a3a40}
+.box.wide{max-width:760px}
+.box h2{font-size:28px;margin-bottom:8px}
+.box .x{position:absolute;right:18px;top:14px;font-size:22px;text-decoration:none;color:var(--gray)}
+.box p{color:var(--gray);margin:6px 0 0}
+.tg{display:flex;align-items:center;justify-content:center;gap:10px;background:#229ed9;color:#fff;border-radius:14px;padding:14px 20px;font-weight:700;text-decoration:none;margin:22px 0 10px}
+.tg svg{width:22px;height:22px}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 0}
+.roles a{border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;text-decoration:none;font-weight:600;font-size:14px;text-align:center}
+.roles a:hover{border-color:var(--blue);color:var(--blue)}
+.role2{display:grid;gap:12px;margin-top:20px}
+.role2 a{display:block;border:1.5px solid var(--line);border-radius:16px;padding:16px 18px;text-decoration:none}
+.role2 a:hover{border-color:var(--blue);background:var(--soft)}
+.role2 b{color:var(--ink);display:block;font-size:18px;margin-bottom:4px}
+.role2 span{color:var(--gray);font-size:14px}
+.back{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:600;text-decoration:none;color:var(--gray)}
+.chk{margin:14px 0 0;padding-left:20px;color:var(--ink)}
+.chk li{margin-bottom:6px}
+.demo{display:inline-block;background:#fff1c6;color:#8a6200;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700;margin-bottom:12px}
+.cab{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.cab .c{border:1px solid var(--line);border-radius:16px;padding:16px}
+.cab .c h4{font-size:13px;color:var(--gray);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.cab .c .v{font-size:26px;font-weight:800;color:var(--blue)}
+.cab .full{grid-column:1/-1}
+.cab ul{margin:0;padding:0;list-style:none}
+.cab li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.cab li:last-child{border:0}
+.bar{height:8px;border-radius:6px;background:#e6edff;margin-top:10px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue)}
+.st{display:inline-block;border-radius:8px;padding:2px 10px;font-size:12px;font-weight:700;background:#dcf6ef;color:#168a73;white-space:nowrap}
+.st.n{background:#ffe9e6;color:#c13d2d}
+@media(max-width:600px){.cab{grid-template-columns:1fr}}
+@media(max-width:900px){.hero h1{white-space:normal}.hero{grid-template-columns:1fr}.stage{height:520px;max-width:520px;margin:0 auto;width:100%}.paper{width:260px;height:340px}.menu{display:none}.strip{grid-template-columns:1fr 1fr}.strip .h{grid-column:1/-1}.inst{border:0;padding:0}.pn{grid-template-columns:1fr}.arr{transform:rotate(90deg);margin:0 auto}.how{grid-template-columns:1fr}.price{grid-template-columns:1fr}.req{padding:28px}.nav{flex-wrap:wrap}}
+</style>
+
+</head>
+<body>
+
+
+<div class="root">
+<input class="lg" type="radio" name="lang" id="lua" checked><input class="lg" type="radio" name="lang" id="lru"><input class="lg" type="radio" name="lang" id="lpl">
+<div class="wrap">
+ <div class="nav">
+  <a class="logo" href="#top"><svg width="42" height="42" viewBox="0 0 42 42"><path d="M8 12 24 5v24L8 36z" fill="#1f5bff"/><path d="M24 5l10 6v22l-10-4z" fill="#6f9bff"/><path d="M8 12l16-7v7L8 19z" fill="#0f3fd0" opacity=".35"/></svg><span class="ua">Пані Тека</span><span class="ru">Пани Тека</span><span class="pl">Pani Teka</span></a>
+  <nav class="menu"><a href="#how"><span class="ua">Як це працює</span><span class="ru">Как это работает</span><span class="pl">Jak to działa</span></a><a href="#pricing"><span class="ua">Ціни</span><span class="ru">Цены</span><span class="pl">Cennik</span></a><a href="#experts"><span class="ua">Фахівці</span><span class="ru">Специалисты</span><span class="pl">Specjaliści</span></a><a href="#faq"><span class="ua">Питання</span><span class="ru">Вопросы</span><span class="pl">Pytania</span></a></nav>
+  <div class="langs"><label for="lua" class="lbl-ua">UA</label><label for="lru" class="lbl-ru">RU</label><label for="lpl" class="lbl-pl">PL</label></div>
+  <a class="pro" href="#register"><span class="ua">Реєстрація</span><span class="ru">Регистрация</span><span class="pl">Rejestracja</span></a>
+ </div>
+
+ <section class="hero" id="top">
+  <div>
+   <div class="eyebrow"><span class="ua">Ваш помічник у Польщі</span><span class="ru">Ваш помощник в Польше</span><span class="pl">Twój pomocnik w Polsce</span></div>
+   <h1><span class="ua">Лист польською?</span><span class="ru">Письмо на польском?</span><span class="pl">Dokument z urzędu?</span><br><span class="ua">Тепер усе</span><span class="ru">Теперь всё</span><span class="pl">Teraz wszystko</span> <span class="sw"><span class="ua">зрозуміло.</span><span class="ru">понятно.</span><span class="pl">jasne.</span><svg viewBox="0 0 300 16" preserveAspectRatio="none"><path d="M2 12C60 3 160 2 298 9" fill="none" stroke="#1f5bff" stroke-width="3" stroke-linecap="round"/></svg></span></h1>
+   <p class="lead"><span class="ua">Дізнайтеся, що від вас хочуть, до якого числа та що робити далі.</span><span class="ru">Узнайте, что от вас хотят, до какого числа и что делать дальше.</span><span class="pl">Dowiedz się, czego od Ciebie chcą, do kiedy trzeba odpowiedzieć i co robić dalej.</span></p>
+   <a class="cta" href="https://t.me/BumagiPL_bot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.2 2.9 10.4c-.9.3-.9 1.5 0 1.8l4.6 1.5 1.8 5.5c.2.7 1.1.9 1.6.3l2.6-2.8 4.6 3.4c.6.4 1.4.1 1.6-.6L22.9 4.4c.2-.8-.6-1.5-1.4-1.2ZM9.2 13.2l8.6-5.3-6.7 6.4-.3 3.3-1.6-4.4Z"/></svg><span class="ua">Розібрати документ безкоштовно</span><span class="ru">Разобрать документ бесплатно</span><span class="pl">Przeanalizuj dokument za darmo</span><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+   <div class="perks"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11" rx="2"/><path d="M3 13h18M12 9v11M12 9c-1-3-5-4-5-1.500S10 9 12 9Zm0 0c1-3 5-4 5-1.500S14 9 12 9Z"/></svg><span class="ua">3 документи безкоштовно</span><span class="ru">3 документа бесплатно</span><span class="pl">3 dokumenty za darmo</span></span><span>·</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 5 13.500h6L10 21l8-10.500h-6z"/></svg><span class="ua">Без банківської картки</span><span class="ru">Без банковской карты</span><span class="pl">Bez karty płatniczej</span></span></div>
+  </div>
+  <div class="stage">
+   <div class="paper"><div class="dt">Warszawa, 10.11.2026 r.</div><div class="org">Zakład Ubezpieczeń<br>Społecznych</div><h4>Wezwanie do zapłaty</h4>Szanowni Państwo,<br><br>Informujemy o powstałej zaległości z tytułu składek na ubezpieczenia społeczne w wysokości <span class="hl">1 284,56 zł</span>.<br><br>Prosimy o uregulowanie należności w terminie 14 dni od dnia doręczenia pisma.<div class="bar"></div><div class="bar" style="width:70%"></div></div>
+   <div class="phone"><div class="sb"><span>10:24</span><span>▮▮▮ ◔ ▭</span></div>
+    <div class="hd"><span style="font-size:20px">‹</span><span class="av"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.2 2.9 10.4c-.9.3-.9 1.5 0 1.8l4.6 1.5 1.8 5.5c.2.7 1.1.9 1.6.3l2.6-2.8 4.6 3.4c.6.4 1.4.1 1.6-.6L22.9 4.4c.2-.8-.6-1.5-1.4-1.2ZM9.2 13.2l8.6-5.3-6.7 6.4-.3 3.3-1.6-4.4Z"/></svg></span><span><b><span class="ua">Пані Тека</span><span class="ru">Пани Тека</span><span class="pl">Pani Teka</span></b><small><span class="ua">бот</span><span class="ru">бот</span><span class="pl">bot</span></small></span></div>
+    <div class="msg"><div class="t"><span>ZUS · <span class="ua">Нагадування про борг</span><span class="ru">Напоминание о долге</span><span class="pl">Przypomnienie o długu</span></span></div><span class="badge">⚠ <span class="ua">Потребує уваги</span><span class="ru">Требует внимания</span><span class="pl">Wymaga uwagi</span></span>
+     <div class="r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><div><b><span class="ua">Суть</span><span class="ru">Суть</span><span class="pl">Istota sprawy</span></b><span><span class="ua">У вас є заборгованість за внесками до ZUS на суму 1 284,56 zł.</span><span class="ru">У вас есть задолженность по взносам в ZUS на сумму 1 284,56 zł.</span><span class="pl">Masz zaległość w składkach do ZUS na kwotę 1 284,56 zł.</span></span></div></div>
+     <div class="r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><div><b><span class="ua">Відповісти до</span><span class="ru">Ответить до</span><span class="pl">Odpowiedz do</span></b><span class="badge"><span class="ua">Орієнтовно до 25.11.2026</span><span class="ru">Ориентировочно до 25.11.2026</span><span class="pl">Orientacyjnie do 25.11.2026</span></span></div></div>
+     <div class="r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8.5 12.2 2.4 2.4 4.8-5"/></svg><div><b><span class="ua">Що зробити</span><span class="ru">Что сделать</span><span class="pl">Co zrobić</span></b><span><span class="ua">Сплатити вказану суму або сконтактуватися з ZUS, якщо не згодні з нарахуванням.</span><span class="ru">Оплатить указанную сумму или связаться с ZUS, если не согласны с начислением.</span><span class="pl">Zapłać wskazaną kwotę lub skontaktuj się z ZUS, jeśli nie zgadzasz się z naliczeniem.</span></span></div></div>
+     <div class="btns"><div>▤ <span class="ua">Повний переклад</span><span class="ru">Полный перевод</span><span class="pl">Pełne tłumaczenie</span></div><div class="p">▶ <span class="ua">Демо</span><span class="ru">Демо</span><span class="pl">Demo</span></div></div></div>
+   </div>
+  </div>
+ </section>
+ <p class="note" style="margin:-10px 0 18px;text-align:right"><span class="ua">Приклад: вигадані дані, не реальний документ.</span><span class="ru">Пример: вымышленные данные, не реальный документ.</span><span class="pl">Przykład: dane fikcyjne, to nie jest prawdziwy dokument.</span></p>
+
+ <div class="strip"><div class="h"><span class="ua">Розбираємо документи від основних польських установ</span><span class="ru">Разбираем документы от основных польских учреждений</span><span class="pl">Analizujemy dokumenty z głównych polskich urzędów</span></div>
+  <div class="inst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.8 2.8 5.2-5.6"/></svg><div><b>ZUS</b></div></div>
+  <div class="inst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg><div><b>Urząd skarbowy</b><small><span class="ua">(податкова)</span><span class="ru">(налоговая)</span><span class="pl">(podatki)</span></small></div></div>
+  <div class="inst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="5"/><path d="M12 8v8M8 12h8"/></svg><div><b>NFZ</b></div></div>
+  <div class="inst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-5 9 5v12M3 21h18M8 21v-6h8v6M7 11h2M15 11h2"/></svg><div><b>Urząd wojewódzki</b><small><span class="ua">(воєводський уряд)</span><span class="ru">(воеводский офис)</span><span class="pl">(pobyt i legalizacja)</span></small></div></div></div>
+
+ <section class="sec">
+  <h2><span class="ua">З офіційної мови — на людську</span><span class="ru">С официального языка — на человеческий</span><span class="pl">Z urzędowego języka na ludzki</span></h2>
+  <p class="sub"><span class="ua">Показуємо на прикладі, як перетворюємо складний документ на зрозуміле пояснення та чіткі дії.</span><span class="ru">Показываем на примере, как превращаем сложный документ в понятное объяснение и чёткие действия.</span><span class="pl">Pokazujemy na przykładzie, jak zamieniamy skomplikowany dokument w zrozumiałe wyjaśnienie i konkretne działania.</span></p>
+  <div class="tabs"><input type="radio" name="tb" id="t1" checked><input type="radio" name="tb" id="t2"><input type="radio" name="tb" id="t3">
+   <div class="tabbar"><label for="t1">ZUS</label><label for="t2"><span class="ua">Податкова</span><span class="ru">Налоговая</span><span class="pl">Urząd skarbowy</span> (Urząd skarbowy)</label><label for="t3">Urząd (<span class="ua">воєводський уряд</span><span class="ru">воеводский офис</span><span class="pl">urząd wojewódzki</span>)</label></div>
+   <div class="pn p1"><div class="orig"><div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span><span class="ua">Оригінал</span><span class="ru">Оригинал</span><span class="pl">Oryginał</span> <small>(<span class="ua">фрагмент</span><span class="ru">фрагмент</span><span class="pl">fragment</span>)</small></span></div><pre><b>Wezwanie do zapłaty</b>
+Informujemy o powstałej zaległości z tytułu składek na ubezpieczenia społeczne w wysokości <span class="hl">1 284,56 zł</span>. Prosimy o uregulowanie należności w terminie <span class="hl">14 dni</span> od dnia doręczenia pisma.</pre></div><div class="arr"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="expl"><div class="k"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.2 2.9 10.4c-.9.3-.9 1.5 0 1.8l4.6 1.5 1.8 5.5c.2.7 1.1.9 1.6.3l2.6-2.8 4.6 3.4c.6.4 1.4.1 1.6-.6L22.9 4.4c.2-.8-.6-1.5-1.4-1.2ZM9.2 13.2l8.6-5.3-6.7 6.4-.3 3.3-1.6-4.4Z"/></svg><span><span class="ua">Пояснення від Пані Теки</span><span class="ru">Объяснение от Пани Теки</span><span class="pl">Wyjaśnienie od Pani Teki</span></span></div><div class="er"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><b><span class="ua">Суть</span><span class="ru">Суть</span><span class="pl">Istota sprawy</span></b><span><span class="ua">ZUS повідомляє про заборгованість за внесками на суму 1 284,56 zł.</span><span class="ru">ZUS сообщает о задолженности по взносам на сумму 1 284,56 zł.</span><span class="pl">ZUS informuje o zaległości w składkach na kwotę 1 284,56 zł.</span></span></div><div class="er"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><b><span class="ua">Відповісти до</span><span class="ru">Ответить до</span><span class="pl">Odpowiedz do</span></b><span><span class="ua"><span class="hint">Орієнтовно до 25.11.2026</span></span><span class="ru"><span class="hint">Ориентировочно до 25.11.2026</span></span><span class="pl"><span class="hint">Orientacyjnie do 25.11.2026</span></span></span></div><div class="er"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8.5 12.2 2.4 2.4 4.8-5"/></svg><b><span class="ua">Що робити</span><span class="ru">Что делать</span><span class="pl">Co zrobić</span></b><span><span class="ua">Сплатити вказану суму або з’ясувати в ZUS, чи немає помилки в нарахуванні.</span><span class="ru">Оплатить указанную сумму или выяснить в ZUS, нет ли ошибки в начислении.</span><span class="pl">Zapłacić wskazaną kwotę lub wyjaśnić w ZUS, czy w naliczeniu nie ma błędu.</span></span></div></div></div><div class="pn p2"><div class="orig"><div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span><span class="ua">Оригінал</span><span class="ru">Оригинал</span><span class="pl">Oryginał</span> <small>(<span class="ua">фрагмент</span><span class="ru">фрагмент</span><span class="pl">fragment</span>)</small></span></div><pre><b>Wezwanie do złożenia wyjaśnień</b>
+Wzywa się do złożenia wyjaśnień dotyczących rozbieżności w zeznaniu podatkowym PIT-37 za rok 2025 w terminie <span class="hl">7 dni</span> od dnia doręczenia wezwania.</pre></div><div class="arr"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="expl"><div class="k"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.2 2.9 10.4c-.9.3-.9 1.5 0 1.8l4.6 1.5 1.8 5.5c.2.7 1.1.9 1.6.3l2.6-2.8 4.6 3.4c.6.4 1.4.1 1.6-.6L22.9 4.4c.2-.8-.6-1.5-1.4-1.2ZM9.2 13.2l8.6-5.3-6.7 6.4-.3 3.3-1.6-4.4Z"/></svg><span><span class="ua">Пояснення від Пані Теки</span><span class="ru">Объяснение от Пани Теки</span><span class="pl">Wyjaśnienie od Pani Teki</span></span></div><div class="er"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><b><span class="ua">Суть</span><span class="ru">Суть</span><span class="pl">Istota sprawy</span></b><span><span class="ua">Податкова просить пояснити розбіжності в декларації PIT-37 за 2025 рік.</span><span class="ru">Налоговая просит объяснить расхождения в декларации PIT-37 за 2025 год.</span><span class="pl">Urząd skarbowy prosi o wyjaśnienie rozbieżności w zeznaniu PIT-37 za 2025 rok.</span></span></div><div class="er"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><b><span class="ua">Відповісти до</span><span class="ru">Ответить до</span><span class="pl">Odpowiedz do</span></b><span><span class="ua"><span class="hint">7 днів від вручення</span></span><span class="ru"><span class="hint">7 дней от вручения</span></span><span class="pl"><span class="hint">7 dni od doręczenia</span></span></span></div><div class="er"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8.5 12.2 2.4 2.4 4.8-5"/></svg><b><span class="ua">Що робити</span><span class="ru">Что делать</span><span class="pl">Co zrobić</span></b><span><span class="ua">Підготувати пояснення з документами й відповісти письмово до кінця терміну.</span><span class="ru">Подготовить объяснение с документами и ответить письменно до конца срока.</span><span class="pl">Przygotować wyjaśnienie z dokumentami i odpowiedzieć pisemnie przed końcem terminu.</span></span></div></div></div><div class="pn p3"><div class="orig"><div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span><span class="ua">Оригінал</span><span class="ru">Оригинал</span><span class="pl">Oryginał</span> <small>(<span class="ua">фрагмент</span><span class="ru">фрагмент</span><span class="pl">fragment</span>)</small></span></div><pre><b>Wezwanie do uzupełnienia braków</b>
+Wzywa się do uzupełnienia braków formalnych wniosku o udzielenie zezwolenia na pobyt czasowy w terminie <span class="hl">7 dni</span> od dnia doręczenia wezwania.</pre></div><div class="arr"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="expl"><div class="k"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.2 2.9 10.4c-.9.3-.9 1.5 0 1.8l4.6 1.5 1.8 5.5c.2.7 1.1.9 1.6.3l2.6-2.8 4.6 3.4c.6.4 1.4.1 1.6-.6L22.9 4.4c.2-.8-.6-1.5-1.4-1.2ZM9.2 13.2l8.6-5.3-6.7 6.4-.3 3.3-1.6-4.4Z"/></svg><span><span class="ua">Пояснення від Пані Теки</span><span class="ru">Объяснение от Пани Теки</span><span class="pl">Wyjaśnienie od Pani Teki</span></span></div><div class="er"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><b><span class="ua">Суть</span><span class="ru">Суть</span><span class="pl">Istota sprawy</span></b><span><span class="ua">Воєвода просить виправити недоліки заяви на тимчасове проживання.</span><span class="ru">Воевода просит исправить недостатки заявления на временное проживание.</span><span class="pl">Wojewoda prosi o uzupełnienie braków we wniosku o pobyt czasowy.</span></span></div><div class="er"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><b><span class="ua">Відповісти до</span><span class="ru">Ответить до</span><span class="pl">Odpowiedz do</span></b><span><span class="ua"><span class="hint">7 днів від вручення</span></span><span class="ru"><span class="hint">7 дней от вручения</span></span><span class="pl"><span class="hint">7 dni od doręczenia</span></span></span></div><div class="er"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8.5 12.2 2.4 2.4 4.8-5"/></svg><b><span class="ua">Що робити</span><span class="ru">Что делать</span><span class="pl">Co zrobić</span></b><span><span class="ua">Подати відсутні документи вчасно, інакше заяву можуть залишити без розгляду.</span><span class="ru">Подать недостающие документы вовремя, иначе заявление могут оставить без рассмотрения.</span><span class="pl">Uzupełnić brakujące dokumenty na czas, inaczej wniosek może zostać pozostawiony bez rozpoznania.</span></span></div></div></div>
+  </div>
+ </section>
+
+ <div class="how" id="how"><div><h2><span class="ua">Як це працює</span><span class="ru">Как это работает</span><span class="pl">Jak to działa</span></h2><p class="note" style="font-size:14px"><span class="ua">Від фото документа — до готового плану дій за кілька хвилин.</span><span class="ru">От фото документа — до готового плана действий за несколько минут.</span><span class="pl">Od zdjęcia dokumentu do gotowego planu działania w kilka minut.</span></p></div>
+  <div class="s"><span class="n">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b><span class="ua">Надішліть документ</span><span class="ru">Отправьте документ</span><span class="pl">Wyślij dokument</span></b><p><span class="ua">Фото або PDF.</span><span class="ru">Фото или PDF.</span><span class="pl">Zdjęcie lub PDF.</span></p></div>
+  <div class="s"><span class="n">2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><circle cx="12" cy="14" r="3"/><path d="m14.2 16.2 2.3 2.3"/></svg><b><span class="ua">Отримайте розбір</span><span class="ru">Получите разбор</span><span class="pl">Otrzymaj analizę</span></b><p><span class="ua">Переклад, суть, до якого числа відповісти і рекомендації простою мовою.</span><span class="ru">Перевод, суть, до какого числа нужно ответить и рекомендации простым языком.</span><span class="pl">Tłumaczenie, istota sprawy, do kiedy odpowiedzieć i wskazówki prostym językiem.</span></p></div>
+  <div class="s"><span class="n">3</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.8 2.8 5.2-5.6"/></svg><b><span class="ua">Дійте впевнено</span><span class="ru">Действуйте уверенно</span><span class="pl">Działaj pewnie</span></b><p><span class="ua">Скористайтеся зразком відповіді або зверніться до фахівця.</span><span class="ru">Используйте образец ответа или обратитесь к специалисту.</span><span class="pl">Skorzystaj ze wzoru odpowiedzi lub zwróć się do specjalisty.</span></p></div>
+ </div>
+
+ <section class="sec" id="guides"><h2><span class="ua">Гайди без юридичної тарабарщини</span><span class="ru">Гайды без юридической тарабарщины</span><span class="pl">Poradniki bez prawniczego żargonu</span></h2>
+  <p class="sub"><span class="ua">Тексти засновані на офіційних джерелах і проходять перевірку фахівцем.</span><span class="ru">Тексты основаны на официальных источниках и проходят проверку специалистом.</span><span class="pl">Teksty oparte są na oficjalnych źródłach i przechodzą weryfikację przez specjalistę.</span></p>
+  <div class="ua"><div class="grid"><details class="card guide"><summary><span class="pt a">ZUS</span><h3>Документ із ZUS: що робити</h3><p>Як читати, які терміни, коли потрібна допомога.</p></summary><div class="gbody"><div class="warn">Текст — загальна інформація, перевірена за офіційними джерелами 25.11.2026, і ще проходить перевірку фахівцем. Правила змінюються: перед діями звіряйтеся з gov.pl або запитайте фахівця.</div>
+<h4>Що зробити одразу</h4><ul>
+<li>Знайдіть у документі слова <b>decyzja</b> (рішення) або <b>wezwanie</b> (вимога): від цього залежить, що робити.</li>
+<li>Запишіть дату отримання документа і до якого числа потрібно відповісти, якщо це вказано. Зазвичай дата написана прямо в документі.</li>
+<li>Збережіть конверт або підтвердження отримання: від дати вручення рахуються терміни.</li></ul>
+<h4>Якщо це рішення (decyzja), з яким ви не згодні</h4><ul>
+<li>Оскаржити можна протягом <b>одного місяця з моменту вручення</b> рішення.</li>
+<li>Скаргу подають письмово до ZUS (органу, що ухвалив рішення). ZUS передає її разом зі справою до суду, якщо сам не змінить рішення.</li>
+<li>Провадження в таких справах, як правило, безкоштовне, збір стягується лише за апеляцію та деякі інші скарги.</li>
+<li>Запізнення зі скаргою може закінчитися тим, що суд її не розгляне.</li></ul>
+<h4>Коли потрібна допомога</h4><p>Якщо йдеться про борг за внесками, відмову в допомозі або ви не розумієте, що від вас вимагають, краще звернутися до фахівця до закінчення терміну.</p><p class="src">Джерела: <a href="https://kadry.infor.pl/poprzednie_tematy_dnia/399926,Jak-wniesc-do-sadu-odwolanie-od-decyzji-ZUS.html">Infor (2010, норми варто перевірити)</a>, <a href="https://www.zus.pl/swiadczenia/emerytury/postepowanie-odwolawcze">ZUS: postępowanie odwoławcze</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Розібрати мій документ у Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt b">Документи</span><h3>Продовження легального перебування</h3><p>Основні кроки та документи.</p></summary><div class="gbody"><div class="warn">Текст — загальна інформація, перевірена за офіційними джерелами 25.11.2026, і ще проходить перевірку фахівцем. Правила змінюються: перед діями звіряйтеся з gov.pl або запитайте фахівця.</div>
+<h4>Головне правило</h4><ul>
+<li>Заяву на тимчасову посвідку на проживання (pobyt czasowy) потрібно подати <b>не пізніше останнього дня</b> вашого легального перебування в Польщі.</li>
+<li>Якщо подали вчасно і в заяві немає формальних помилок (або ви їх виправили вчасно), воєвода видає підтвердження подачі заяви. Перебування вважається легальним до моменту, коли рішення стане остаточним.</li></ul>
+<h4>Як подавати</h4><ul>
+<li>За даними офіційного порталу, з <b>27 квітня 2026 року</b> заява громадянина третьої країни подається електронно через портал MOS (mos.cudzoziemcy.gov.pl). Заява, подана інакше, залишається без розгляду. Є винятки, наприклад, якщо заявник перебуває за кордоном.</li>
+<li>Не відкладайте підготовку документів на останній день: недоліки в документах доведеться усувати вчасно.</li>
+<li>Інформаційна лінія для іноземців з питань воєводи: 91 44 12 000.</li></ul>
+<h4>Типові помилки</h4><ul><li>Пропущено термін подачі.</li><li>Не сплачено збір або не додано підтвердження.</li><li>Змінили адресу й не повідомили воєводу письмово.</li></ul><p class="src">Джерела: <a href="https://powroty.gov.pl/legalizacja-pobytu-w-polsce-10140/">powroty.gov.pl: Legalizacja pobytu</a>, <a href="https://www.gov.pl/web/uw-zachodniopomorski/legalizacja-pobytu">gov.pl: Legalizacja pobytu</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Розібрати мій документ у Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt c">Картка</span><h3>Картка CUKR</h3><p>Для кого і як оформити.</p></summary><div class="gbody"><div class="warn">Текст — загальна інформація, перевірена за офіційними джерелами 25.11.2026, і ще проходить перевірку фахівцем. Правила змінюються: перед діями звіряйтеся з gov.pl або запитайте фахівця.</div>
+<h4>Що це</h4><p>Картка pobytu з позначкою «Poprzednio posiadacz ochrony czasowej». Видає воєвода. Подача заяв відкрилася <b>4 травня 2026 року</b>.</p>
+<h4>Хто може подати</h4><ul>
+<li>Громадянин України, який приїхав до Польщі з України з 24.02.2022 через воєнні дії, з номером PESEL зі статусом <b>UKR</b>.</li>
+<li>Статус UKR має бути: станом на 4 червня 2025 року, на день подачі й безперервно щонайменше 365 днів (періоди не додаються).</li>
+<li>Діти, народжені в Польщі після 24.02.2022, якщо мати приїхала в цей період, має статус UKR і вже отримала картку CUKR.</li></ul>
+<h4>Кому не підійде</h4><ul><li>Тим, кому видано дозвіл на тимчасове перебування й роботу: статус змінюється на NUE.</li><li>Виїзд із Польщі більш ніж на 6 місяців призводить до втрати статусу.</li></ul>
+<h4>Як подавати і що потрібно</h4><ul>
+<li>Лише електронно через MOS: з кваліфікованим підписом, профілем zaufany або особистим підписом. Паперові заяви та повідомлення на e-mail не розглядаються.</li>
+<li>Фото 35×45 мм за вимогами (не старше 6 місяців).</li>
+<li>Підтвердження оплати: збір за видачу картки <b>100 zł</b> і мито за дозвіл на тимчасове перебування <b>340 zł</b>. Платити потрібно заздалегідь.</li>
+<li>Картка діє 3 роки. Забрати її треба у воєводстві: якщо не забрати за 60 днів, картку анулюють, а збори не повертаються.</li></ul><p class="src">Джерела: <a href="https://www.mos.cudzoziemcy.gov.pl/baza-pytan-i-odpowiedzi/karta-pobytu-cukr/">MOS: baza pytań, karta pobytu CUKR</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Розібрати мій документ у Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt d">Здоров'я</span><h3>NFZ і страховка</h3><p>Як перевірити статус.</p></summary><div class="gbody"><div class="warn">Текст — загальна інформація, перевірена за офіційними джерелами 25.11.2026, і ще проходить перевірку фахівцем. Правила змінюються: перед діями звіряйтеся з gov.pl або запитайте фахівця.</div>
+<h4>Як дізнатися, чи ви застраховані</h4><ul>
+<li>Якщо ви працюєте за договором або ведете JDG, внески зазвичай сплачує роботодавець або ви самі, і вас реєструють у ZUS. Запитайте роботодавця, чи подано формуляр про ваше страхування.</li>
+<li>Статус страхування можна уточнити у відділенні NFZ за місцем проживання.</li></ul>
+<h4>Якщо обов'язкового страхування немає: добровільне</h4><ul>
+<li>Іноземець, який легально проживає в Польщі, може укласти договір із NFZ за певних статусів (наприклад, тимчасова посвідка на проживання, захист, навчання).</li>
+<li>Подавайте якнайшвидше: заднім числом договір не укласти.</li>
+<li>Заява подається до регіонального відділу NFZ, потім протягом 7 днів потрібно зареєструватися в ZUS (форма ZZA).</li>
+<li>Внесок за правилами: 9% від заявленого доходу, але не менше середньомісячної зарплати в секторі підприємств (для деяких категорій інакше). Платити потрібно до підписання договору.</li>
+<li>Перерва в страхуванні понад 3 місяці може спричинити додатковий платіж.</li></ul>
+<div class="warn">Сторінка Міністерства охорони здоров'я з цими правилами датована 2018 роком. Суму й умови звірте з NFZ.</div><p class="src">Джерела: <a href="https://www.gov.pl/web/zdrowie/ubezpiecz-sie-dobrowolnie">gov.pl: Ubezpiecz się dobrowolnie</a>, <a href="https://www.nfz.gov.pl/dla-pacjenta/zalatw-sprawe-krok-po-kroku/jak-ubezpieczyc-sie-dobrowolnie">NFZ: jak ubezpieczyć się dobrowolnie</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Розібрати мій документ у Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt a">Бізнес</span><h3>Відкрити JDG: основи</h3><p>З чого почати і які платежі чекати.</p></summary><div class="gbody"><div class="warn">Текст — загальна інформація, перевірена за офіційними джерелами 25.11.2026, і ще проходить перевірку фахівцем. Правила змінюються: перед діями звіряйтеся з gov.pl або запитайте фахівця.</div>
+<h4>З чого почати</h4><ul>
+<li>Реєстрація індивідуальної діяльності (JDG) відбувається через CEIDG. Але іноземцю спочатку потрібно перевірити, чи дає ваш статус перебування право вести діяльність: це залежить від типу дозволу.</li>
+<li>Після реєстрації ви сплачуєте внески ZUS і податок. Оберіть форму оподаткування разом із бухгалтером.</li></ul>
+<h4>Внески ZUS у 2026 році (без медичного внеску)</h4><ul>
+<li><b>Преференційний ZUS</b> (перші 24 місяці): база не нижче 1441,80 zł. Соціальні внески: пенсійний 281,44 + рентний 115,35 + лікарняний (добровільний) 35,33 + нещасний випадок 24,08, разом близько <b>456,20 zł</b> на місяць.</li>
+<li><b>Повний ZUS</b>: за даними офіційного порталу близько <b>1926,76 zł</b> на місяць.</li>
+<li>Пільга не діє, якщо за останні 60 місяців ви вели іншу діяльність або працюєте на колишнього роботодавця на тих самих завданнях.</li>
+<li>Медичний внесок сплачується окремо й залежить від форми оподаткування та доходу. З 1 лютого 2026 року мінімальна сума вища за колишні 314,96 zł.</li></ul>
+<div class="warn">Щодо «ulga na start» (звільнення від соціальних внесків на перші місяці) і «Mały ZUS plus» умови тут не розкриті: уточніть у бухгалтера або в ZUS.</div><p class="src">Джерела: <a href="https://zielonalinia.gov.pl/planujesz-otwarcie-dzialalnosci-gospodarczej-sprawdz-jakie-wysokosci-skladek-na-ubezpieczenia-spoleczne-obowiazuja-w-2026-roku/">Zielona Linia: składki 2026</a>, <a href="https://powroty.gov.pl/nizsze-skladki-zus-dla-rozpoczynajacych-dzialalnosc-9798/">powroty.gov.pl: niższe składki ZUS</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Розібрати мій документ у Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt b">Житло</span><h3>Шахраї під час оренди</h3><p>Як розпізнати і що перевірити.</p></summary><div class="gbody"><div class="warn">Текст — загальна інформація, перевірена за офіційними джерелами 25.11.2026, і ще проходить перевірку фахівцем. Правила змінюються: перед діями звіряйтеся з gov.pl або запитайте фахівця.</div>
+<h4>Типова схема</h4><p>«Господар» публікує вигідне оголошення про квартиру, яка йому не належить. Кількох людей він запрошує на огляд і просить заставу або аванс без договору та без передачі ключів. Через кілька днів він перестає відповідати.</p>
+<h4>Ознаки</h4><ul>
+<li>Ціна помітно нижча за ринкову.</li>
+<li>Тиснуть на швидкість: «гроші сьогодні, інакше візьме інший».</li>
+<li>Платити просять до підписання договору та отримання ключів.</li>
+<li>Господар не показує документ на житло й не хоче зустрічатися особисто.</li></ul>
+<h4>Як захиститися</h4><ul>
+<li>Не переказуйте заставу й аванс без підписаного договору оренди та без ключів.</li>
+<li>Просіть підтвердити, що людина має право здавати житло (документ на власність або довіреність).</li>
+<li>Якщо вас обманули, зверніться в поліцію і збережіть листування та підтвердження переказів.</li></ul><p class="src">Джерела: <a href="https://bezprawnik.pl/wynajem-mieszkania-oszustwo">Bezprawnik: wynajem mieszkania oszustwo (2018)</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Розібрати мій документ у Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt c">PESEL</span><h3>PESEL для іноземця</h3><p>Що це і як отримати.</p></summary><div class="gbody"><div class="warn">Текст — загальна інформація, перевірена за офіційними джерелами 25.11.2026, і ще проходить перевірку фахівцем. Правила змінюються: перед діями звіряйтеся з gov.pl або запитайте фахівця.</div>
+<h4>Найпростіший шлях</h4><ul>
+<li>Зареєструйтеся за місцем проживання в Польщі (meldunek) при перебуванні понад 30 днів: PESEL присвоюється автоматично.</li></ul>
+<h4>Якщо реєстрація неможлива, але номер потрібен</h4><ul>
+<li>Подайте заяву про присвоєння PESEL до urząd gminy. У заяві потрібно вказати підставу, з якої вам потрібен номер (наприклад, вимога ZUS або податкової).</li>
+<li>Якщо ви не працюєте або роботодавець за кордоном, зверніться до Urząd Dzielnicy Śródmieście у Варшаві.</li>
+<li>Послуга безкоштовна. Заяву можна подати особисто або через представника.</li></ul>
+<div class="warn">Сторінка Zielona Linia оновлювалася у 2020 році, конкретну процедуру уточніть у своєму urzędzie gminy.</div><p class="src">Джерела: <a href="https://zielonalinia.gov.pl/pesel-dla-cudzoziemca/">Zielona Linia: PESEL dla cudzoziemca</a>, <a href="https://www.gov.pl/web/gov/uzyskaj-numer-pesel--usluga-dla-cudzoziemcow-en">gov.pl: Get a PESEL</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Розібрати мій документ у Telegram</a></div></details>
+</div></div><div class="ru"><div class="grid"><details class="card guide"><summary><span class="pt a">ZUS</span><h3>Документ из ZUS: что делать</h3><p>Как читать, какие сроки, когда нужна помощь.</p></summary><div class="gbody"><div class="warn">Текст — общая информация, проверен по официальным источникам 25.11.2026 и ещё проходит проверку специалистом. Правила меняются: перед действиями сверяйтесь с gov.pl или спросите специалиста.</div>
+<h4>Что сделать сразу</h4><ul>
+<li>Найдите в документе слова <b>decyzja</b> (решение) или <b>wezwanie</b> (требование): от этого зависит, что делать.</li>
+<li>Запишите дату получения документа и до какого числа нужно ответить, если это указано. Обычно дата написана прямо в документе.</li>
+<li>Сохраните конверт или подтверждение получения: от даты вручения считаются сроки.</li></ul>
+<h4>Если это решение (decyzja), с которым вы не согласны</h4><ul>
+<li>Обжаловать можно в течение <b>одного месяца с момента вручения</b> решения.</li>
+<li>Жалобу подают письменно в ZUS (орган, вынесший решение). ZUS передаёт её вместе с делом в суд, если сам не изменит решение.</li>
+<li>Производство в таких делах, как правило, бесплатное, пошлина берётся только за апелляцию и некоторые другие жалобы.</li>
+<li>Опоздание с жалобой может закончиться тем, что суд её не рассмотрит.</li></ul>
+<h4>Когда нужна помощь</h4><p>Если речь о долге по взносам, отказе в пособии или вы не понимаете, что от вас требуют, лучше обратиться к специалисту до истечения срока.</p><p class="src">Источники: <a href="https://kadry.infor.pl/poprzednie_tematy_dnia/399926,Jak-wniesc-do-sadu-odwolanie-od-decyzji-ZUS.html">Infor (2010, нормы стоит перепроверить)</a>, <a href="https://www.zus.pl/swiadczenia/emerytury/postepowanie-odwolawcze">ZUS: postępowanie odwoławcze</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Разобрать мой документ в Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt b">Документы</span><h3>Продление легального пребывания</h3><p>Основные шаги и документы.</p></summary><div class="gbody"><div class="warn">Текст — общая информация, проверен по официальным источникам 25.11.2026 и ещё проходит проверку специалистом. Правила меняются: перед действиями сверяйтесь с gov.pl или спросите специалиста.</div>
+<h4>Главное правило</h4><ul>
+<li>Заявление на временный вид на жительство (pobyt czasowy) нужно подать <b>не позднее последнего дня</b> вашего легального пребывания в Польше.</li>
+<li>Если подали вовремя и в заявлении нет формальных ошибок (или вы их исправили в срок), воевода выдаёт свидетельство о подаче заявления. Пребывание считается легальным до момента, когда решение станет окончательным.</li></ul>
+<h4>Как подавать</h4><ul>
+<li>По данным официального портала, с <b>27 апреля 2026 года</b> заявление гражданина третьей страны подаётся электронно через портал MOS (mos.cudzoziemcy.gov.pl). Заявление, поданное иначе, остаётся без рассмотрения. Есть исключения, например, если заявитель находится за границей.</li>
+<li>Не откладывайте подготовку документов на последний день: недостатки в документах придётся устранять в срок.</li>
+<li>Информационная линия для иностранцев в вопросах воеводы: 91 44 12 000.</li></ul>
+<h4>Типичные ошибки</h4><ul><li>Пропущен срок подачи.</li><li>Не оплачен сбор или не приложено подтверждение.</li><li>Сменили адрес и не сообщили воеводе письменно.</li></ul><p class="src">Источники: <a href="https://powroty.gov.pl/legalizacja-pobytu-w-polsce-10140/">powroty.gov.pl: Legalizacja pobytu</a>, <a href="https://www.gov.pl/web/uw-zachodniopomorski/legalizacja-pobytu">gov.pl: Legalizacja pobytu</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Разобрать мой документ в Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt c">Карта</span><h3>Карта CUKR</h3><p>Для кого и как оформить.</p></summary><div class="gbody"><div class="warn">Текст — общая информация, проверен по официальным источникам 25.11.2026 и ещё проходит проверку специалистом. Правила меняются: перед действиями сверяйтесь с gov.pl или спросите специалиста.</div>
+<h4>Что это</h4><p>Карта pobytu с отметкой «Poprzednio posiadacz ochrony czasowej». Выдаёт воевода. Подача заявлений открылась <b>4 мая 2026 года</b>.</p>
+<h4>Кто может подать</h4><ul>
+<li>Гражданин Украины, приехавший в Польшу из Украины с 24.02.2022 из-за военных действий, с номером PESEL со статусом <b>UKR</b>.</li>
+<li>Статус UKR должен быть: на 4 июня 2025 года, на день подачи и непрерывно не менее 365 дней (периоды не суммируются).</li>
+<li>Дети, родившиеся в Польше после 24.02.2022, если мать приехала в этот период, имеет статус UKR и уже получила карту CUKR.</li></ul>
+<h4>Кому не подойдёт</h4><ul><li>Тем, кому выдано разрешение на временное пребывание и работу: статус меняется на NUE.</li><li>Выезд из Польши более чем на 6 месяцев ведёт к потере статуса.</li></ul>
+<h4>Как подавать и что нужно</h4><ul>
+<li>Только электронно через MOS: с квалифицированной подписью, профилем zaufany или личной подписью. Бумажные заявления и письма на e-mail не рассматриваются.</li>
+<li>Фото 35×45 мм по требованиям (не старше 6 месяцев).</li>
+<li>Подтверждение оплаты: сбор за выдачу карты <b>100 zł</b> и пошлина за разрешение на временное пребывание <b>340 zł</b>. Платить нужно заранее.</li>
+<li>Карта действует 3 года. Забрать её надо в воеводстве: если не забрать за 60 дней, карта аннулируется, а сборы не возвращаются.</li></ul><p class="src">Источники: <a href="https://www.mos.cudzoziemcy.gov.pl/baza-pytan-i-odpowiedzi/karta-pobytu-cukr/">MOS: baza pytań, karta pobytu CUKR</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Разобрать мой документ в Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt d">Здоровье</span><h3>NFZ и страховка</h3><p>Как проверить статус.</p></summary><div class="gbody"><div class="warn">Текст — общая информация, проверен по официальным источникам 25.11.2026 и ещё проходит проверку специалистом. Правила меняются: перед действиями сверяйтесь с gov.pl или спросите специалиста.</div>
+<h4>Как узнать, застрахованы ли вы</h4><ul>
+<li>Если вы работаете по договору или ведёте JDG, взносы обычно платит работодатель или вы сами, и вас регистрируют в ZUS. Спросите работодателя, подан ли формуляр о вашем страховании.</li>
+<li>Статус страхования можно уточнить в отделении NFZ по месту жительства.</li></ul>
+<h4>Если обязательного страхования нет: добровольное</h4><ul>
+<li>Иностранец, легально проживающий в Польше, может заключить договор с NFZ при определённых статусах (например, временный вид на жительство, защита, учёба).</li>
+<li>Подавайте как можно раньше: задним числом договор не заключить.</li>
+<li>Заявление подаётся в региональный отдел NFZ, затем в течение 7 дней нужно зарегистрироваться в ZUS (форма ZZA).</li>
+<li>Взнос по правилам: 9% от заявленного дохода, но не меньше среднемесячной зарплаты в секторе предприятий (для некоторых категорий иначе). Платить нужно до подписания договора.</li>
+<li>Перерыв в страховании более 3 месяцев может повлечь дополнительный платёж.</li></ul>
+<div class="warn">Страница Минздрава с этими правилами датирована 2018 годом. Сумму и условия сверьте с NFZ.</div><p class="src">Источники: <a href="https://www.gov.pl/web/zdrowie/ubezpiecz-sie-dobrowolnie">gov.pl: Ubezpiecz się dobrowolnie</a>, <a href="https://www.nfz.gov.pl/dla-pacjenta/zalatw-sprawe-krok-po-kroku/jak-ubezpieczyc-sie-dobrowolnie">NFZ: jak ubezpieczyć się dobrowolnie</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Разобрать мой документ в Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt a">Бизнес</span><h3>Открыть JDG: основы</h3><p>С чего начать и какие платежи ждать.</p></summary><div class="gbody"><div class="warn">Текст — общая информация, проверен по официальным источникам 25.11.2026 и ещё проходит проверку специалистом. Правила меняются: перед действиями сверяйтесь с gov.pl или спросите специалиста.</div>
+<h4>С чего начать</h4><ul>
+<li>Регистрация индивидуальной деятельности (JDG) идёт через CEIDG. Но иностранцу сначала нужно проверить, даёт ли ваш статус пребывания право вести деятельность: это зависит от типа разрешения.</li>
+<li>После регистрации вы платите взносы ZUS и налог. Выберите форму налогообложения вместе с бухгалтером.</li></ul>
+<h4>Взносы ZUS в 2026 году (без медицинского взноса)</h4><ul>
+<li><b>Преференциальный ZUS</b> (первые 24 месяца): база не ниже 1441,80 zł. Социальные взносы: пенсионный 281,44 + рентный 115,35 + больничный (добровольный) 35,33 + несчастный случай 24,08, всего около <b>456,20 zł</b> в месяц.</li>
+<li><b>Полный ZUS</b>: по данным официального портала около <b>1926,76 zł</b> в месяц.</li>
+<li>Льгота не действует, если за последние 60 месяцев вы вели другую деятельность или работаете на бывшего работодателя на тех же задачах.</li>
+<li>Медицинский взнос платится отдельно и зависит от формы налогообложения и дохода. С 1 февраля 2026 года минимальная сумма выше прежних 314,96 zł.</li></ul>
+<div class="warn">Про «ulga na start» (освобождение от социальных взносов на первые месяцы) и «Mały ZUS plus» условия здесь не раскрыты: уточните у бухгалтера или в ZUS.</div><p class="src">Источники: <a href="https://zielonalinia.gov.pl/planujesz-otwarcie-dzialalnosci-gospodarczej-sprawdz-jakie-wysokosci-skladek-na-ubezpieczenia-spoleczne-obowiazuja-w-2026-roku/">Zielona Linia: składki 2026</a>, <a href="https://powroty.gov.pl/nizsze-skladki-zus-dla-rozpoczynajacych-dzialalnosc-9798/">powroty.gov.pl: niższe składki ZUS</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Разобрать мой документ в Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt b">Жильё</span><h3>Мошенники при аренде</h3><p>Как распознать и что проверить.</p></summary><div class="gbody"><div class="warn">Текст — общая информация, проверен по официальным источникам 25.11.2026 и ещё проходит проверку специалистом. Правила меняются: перед действиями сверяйтесь с gov.pl или спросите специалиста.</div>
+<h4>Типичная схема</h4><p>«Хозяин» публикует выгодное объявление о квартире, которая ему не принадлежит. Нескольких людей он приглашает на просмотр и просит залог или аванс без договора и без передачи ключей. Через несколько дней он перестаёт отвечать.</p>
+<h4>Признаки</h4><ul>
+<li>Цена заметно ниже рынка.</li>
+<li>Давят на скорость: «деньги сегодня, иначе возьмёт другой».</li>
+<li>Платить просят до подписания договора и получения ключей.</li>
+<li>Хозяин не показывает документ на жильё и не хочет встречаться лично.</li></ul>
+<h4>Как защититься</h4><ul>
+<li>Не переводите залог и аванс без подписанного договора аренды и без ключей.</li>
+<li>Просите подтвердить, что человек имеет право сдавать жильё (документ на собственность или доверенность).</li>
+<li>Если вас обманули, обратитесь в полицию и сохраните переписку и подтверждения переводов.</li></ul><p class="src">Источники: <a href="https://bezprawnik.pl/wynajem-mieszkania-oszustwo">Bezprawnik: wynajem mieszkania oszustwo (2018)</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Разобрать мой документ в Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt c">PESEL</span><h3>PESEL для иностранца</h3><p>Что это и как получить.</p></summary><div class="gbody"><div class="warn">Текст — общая информация, проверен по официальным источникам 25.11.2026 и ещё проходит проверку специалистом. Правила меняются: перед действиями сверяйтесь с gov.pl или спросите специалиста.</div>
+<h4>Самый простой путь</h4><ul>
+<li>Зарегистрируйтесь по месту жительства в Польше (meldunek) при пребывании более 30 дней: PESEL присваивается автоматически.</li></ul>
+<h4>Если регистрация невозможна, но номер нужен</h4><ul>
+<li>Подайте заявление о присвоении PESEL в urząd gminy. В заявлении нужно указать основание, по которому вам нужен номер (например, требование ZUS или налоговой).</li>
+<li>Если вы не работаете или работодатель за границей, обратитесь в Urząd Dzielnicy Śródmieście в Варшаве.</li>
+<li>Услуга бесплатная. Заявление можно подать лично или через представителя.</li></ul>
+<div class="warn">Страница Zielona Linia обновлялась в 2020 году, конкретную процедуру уточните в своём urzędzie gminy.</div><p class="src">Источники: <a href="https://zielonalinia.gov.pl/pesel-dla-cudzoziemca/">Zielona Linia: PESEL dla cudzoziemca</a>, <a href="https://www.gov.pl/web/gov/uzyskaj-numer-pesel--usluga-dla-cudzoziemcow-en">gov.pl: Get a PESEL</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Разобрать мой документ в Telegram</a></div></details></div></div><div class="pl"><div class="grid"><details class="card guide"><summary><span class="pt a">ZUS</span><h3>Dokument z ZUS: co robić</h3><p>Jak czytać, jakie terminy, kiedy potrzebna pomoc.</p></summary><div class="gbody"><div class="warn">Tekst to informacja ogólna, sprawdzona z oficjalnymi źródłami 25.11.2026 i nadal przechodzi weryfikację przez specjalistę. Przepisy się zmieniają: przed działaniem sprawdź na gov.pl lub zapytaj specjalistę.</div>
+<h4>Co zrobić od razu</h4><ul>
+<li>Znajdź w dokumencie słowa <b>decyzja</b> lub <b>wezwanie</b>: od tego zależy, co robić.</li>
+<li>Zapisz datę otrzymania dokumentu i do kiedy trzeba odpowiedzieć, jeśli jest to podane. Zwykle data jest napisana wprost w dokumencie.</li>
+<li>Zachowaj kopertę lub potwierdzenie odbioru: terminy liczy się od daty doręczenia.</li></ul>
+<h4>Jeśli to decyzja (decyzja), z którą się nie zgadzasz</h4><ul>
+<li>Odwołać się można w ciągu <b>jednego miesiąca od doręczenia</b> decyzji.</li>
+<li>Odwołanie składa się pisemnie do ZUS (organu, który wydał decyzję). ZUS przekazuje je wraz z aktami do sądu, jeśli sam nie zmieni decyzji.</li>
+<li>Postępowanie w takich sprawach co do zasady jest bezpłatne, opłata dotyczy apelacji i niektórych innych środków zaskarżenia.</li>
+<li>Spóźnienie z odwołaniem może skutkować tym, że sąd go nie rozpatrzy.</li></ul>
+<h4>Kiedy potrzebna pomoc</h4><p>Jeśli chodzi o dług w składkach, odmowę świadczenia albo nie rozumiesz, czego od Ciebie wymagają, lepiej zwrócić się do specjalisty przed upływem terminu.</p><p class="src">Źródła: <a href="https://kadry.infor.pl/poprzednie_tematy_dnia/399926,Jak-wniesc-do-sadu-odwolanie-od-decyzji-ZUS.html">Infor (2010, przepisy warto zweryfikować)</a>, <a href="https://www.zus.pl/swiadczenia/emerytury/postepowanie-odwolawcze">ZUS: postępowanie odwoławcze</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Przeanalizuj mój dokument w Telegramie</a></div></details>
+<details class="card guide"><summary><span class="pt b">Dokumenty</span><h3>Przedłużenie legalnego pobytu</h3><p>Podstawowe kroki i dokumenty.</p></summary><div class="gbody"><div class="warn">Tekst to informacja ogólna, sprawdzona z oficjalnymi źródłami 25.11.2026 i nadal przechodzi weryfikację przez specjalistę. Przepisy się zmieniają: przed działaniem sprawdź na gov.pl lub zapytaj specjalistę.</div>
+<h4>Główna zasada</h4><ul>
+<li>Wniosek o zezwolenie na pobyt czasowy należy złożyć <b>najpóźniej ostatniego dnia</b> legalnego pobytu w Polsce.</li>
+<li>Jeśli wniosek złożono na czas i nie ma w nim braków formalnych (lub uzupełniono je w terminie), wojewoda wydaje zaświadczenie o złożeniu wniosku. Pobyt uznaje się za legalny do czasu, gdy decyzja stanie się ostateczna.</li></ul>
+<h4>Jak składać</h4><ul>
+<li>Według oficjalnego portalu od <b>27 kwietnia 2026 roku</b> wniosek obywatela państwa trzeciego składa się elektronicznie przez portal MOS (mos.cudzoziemcy.gov.pl). Wniosek złożony w inny sposób pozostawia się bez rozpoznania. Są wyjątki, np. gdy wnioskodawca przebywa za granicą.</li>
+<li>Nie zostawiaj przygotowania dokumentów na ostatni dzień: braki trzeba uzupełnić w terminie.</li>
+<li>Infolinia dla cudzoziemców w sprawach wojewody: 91 44 12 000.</li></ul>
+<h4>Typowe błędy</h4><ul><li>Przekroczony termin złożenia wniosku.</li><li>Nieopłacona opłata lub brak potwierdzenia.</li><li>Zmiana adresu bez pisemnego powiadomienia wojewody.</li></ul><p class="src">Źródła: <a href="https://powroty.gov.pl/legalizacja-pobytu-w-polsce-10140/">powroty.gov.pl: Legalizacja pobytu</a>, <a href="https://www.gov.pl/web/uw-zachodniopomorski/legalizacja-pobytu">gov.pl: Legalizacja pobytu</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Przeanalizuj mój dokument w Telegramie</a></div></details>
+<details class="card guide"><summary><span class="pt c">Karta</span><h3>Karta CUKR</h3><p>Dla kogo i jak ją uzyskać.</p></summary><div class="gbody"><div class="warn">Tekst to informacja ogólna, sprawdzona z oficjalnymi źródłami 25.11.2026 i nadal przechodzi weryfikację przez specjalistę. Przepisy się zmieniają: przed działaniem sprawdź na gov.pl lub zapytaj specjalistę.</div>
+<h4>Co to jest</h4><p>Karta pobytu z adnotacją „Poprzednio posiadacz ochrony czasowej”. Wydaje ją wojewoda. Przyjmowanie wniosków rozpoczęło się <b>4 maja 2026 roku</b>.</p>
+<h4>Kto może złożyć wniosek</h4><ul>
+<li>Obywatel Ukrainy, który przybył do Polski z Ukrainy od 24.02.2022 z powodu działań wojennych, z numerem PESEL ze statusem <b>UKR</b>.</li>
+<li>Status UKR musi być ważny: na dzień 4 czerwca 2025 roku, w dniu złożenia wniosku i nieprzerwanie co najmniej 365 dni (okresy nie sumują się).</li>
+<li>Dzieci urodzone w Polsce po 24.02.2022, jeśli matka przybyła w tym okresie, ma status UKR i otrzymała już kartę CUKR.</li></ul>
+<h4>Komu nie będzie odpowiednia</h4><ul><li>Osobom, którym wydano zezwolenie na pobyt czasowy i pracę: status zmienia się na NUE.</li><li>Wyjazd z Polski na ponad 6 miesięcy oznacza utratę statusu.</li></ul>
+<h4>Jak składać i co jest potrzebne</h4><ul>
+<li>Wyłącznie elektronicznie przez MOS: z kwalifikowanym podpisem, profilem zaufanym lub podpisem osobistym. Wnioski papierowe i e-maile nie są rozpatrywane.</li>
+<li>Zdjęcie 35×45 mm zgodne z wymaganiami (nie starsze niż 6 miesięcy).</li>
+<li>Potwierdzenie opłaty: opłata za wydanie karty <b>100 zł</b> i opłata za zezwolenie na pobyt czasowy <b>340 zł</b>. Płaci się z góry.</li>
+<li>Karta jest ważna 3 lata. Trzeba ją odebrać w urzędzie wojewódzkim: jeśli nie zostanie odebrana w ciągu 60 dni, zostaje unieważniona, a opłaty nie są zwracane.</li></ul><p class="src">Źródła: <a href="https://www.mos.cudzoziemcy.gov.pl/baza-pytan-i-odpowiedzi/karta-pobytu-cukr/">MOS: baza pytań, karta pobytu CUKR</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Przeanalizuj mój dokument w Telegramie</a></div></details>
+<details class="card guide"><summary><span class="pt d">Zdrowie</span><h3>NFZ i ubezpieczenie</h3><p>Jak sprawdzić status.</p></summary><div class="gbody"><div class="warn">Tekst to informacja ogólna, sprawdzona z oficjalnymi źródłami 25.11.2026 i nadal przechodzi weryfikację przez specjalistę. Przepisy się zmieniają: przed działaniem sprawdź na gov.pl lub zapytaj specjalistę.</div>
+<h4>Jak sprawdzić, czy jesteś ubezpieczony</h4><ul>
+<li>Jeśli pracujesz na umowie lub prowadzisz JDG, składki zwykle opłaca pracodawca albo Ty sam, a Ty jesteś zgłoszony do ZUS. Zapytaj pracodawcę, czy złożył zgłoszenie do ubezpieczenia.</li>
+<li>Status ubezpieczenia można potwierdzić w oddziale NFZ właściwym dla miejsca zamieszkania.</li></ul>
+<h4>Jeśli nie ma obowiązkowego ubezpieczenia: dobrowolne</h4><ul>
+<li>Cudzoziemiec legalnie przebywający w Polsce może zawrzeć umowę z NFZ przy określonych statusach (np. zezwolenie na pobyt czasowy, ochrona, studia).</li>
+<li>Składaj wniosek jak najszybciej: umowy nie można zawrzeć wstecznie.</li>
+<li>Wniosek składa się w oddziale wojewódzkim NFZ, następnie w ciągu 7 dni trzeba się zgłosić do ZUS (formularz ZZA).</li>
+<li>Składka według zasad: 9% zadeklarowanego dochodu, ale nie mniej niż przeciętne miesięczne wynagrodzenie w sektorze przedsiębiorstw (dla niektórych kategorii inaczej). Płaci się przed podpisaniem umowy.</li>
+<li>Przerwa w ubezpieczeniu dłuższa niż 3 miesiące może skutkować dodatkową opłatą.</li></ul>
+<div class="warn">Strona Ministerstwa Zdrowia z tymi zasadami pochodzi z 2018 roku. Kwotę i warunki sprawdź w NFZ.</div><p class="src">Źródła: <a href="https://www.gov.pl/web/zdrowie/ubezpiecz-sie-dobrowolnie">gov.pl: Ubezpiecz się dobrowolnie</a>, <a href="https://www.nfz.gov.pl/dla-pacjenta/zalatw-sprawe-krok-po-kroku/jak-ubezpieczyc-sie-dobrowolnie">NFZ: jak ubezpieczyć się dobrowolnie</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Przeanalizuj mój dokument w Telegramie</a></div></details>
+<details class="card guide"><summary><span class="pt a">Biznes</span><h3>Założenie JDG: podstawy</h3><p>Od czego zacząć i jakich opłat się spodziewać.</p></summary><div class="gbody"><div class="warn">Tekst to informacja ogólna, sprawdzona z oficjalnymi źródłami 25.11.2026 i nadal przechodzi weryfikację przez specjalistę. Przepisy się zmieniają: przed działaniem sprawdź na gov.pl lub zapytaj specjalistę.</div>
+<h4>Od czego zacząć</h4><ul>
+<li>Rejestracja jednoosobowej działalności (JDG) odbywa się przez CEIDG. Cudzoziemiec powinien jednak najpierw sprawdzić, czy jego status pobytowy daje prawo do prowadzenia działalności: zależy to od rodzaju zezwolenia.</li>
+<li>Po rejestracji płacisz składki ZUS i podatek. Formę opodatkowania wybierz razem z księgowym.</li></ul>
+<h4>Składki ZUS w 2026 roku (bez składki zdrowotnej)</h4><ul>
+<li><b>Preferencyjny ZUS</b> (pierwsze 24 miesiące): podstawa nie niższa niż 1441,80 zł. Składki społeczne: emerytalna 281,44 + rentowa 115,35 + chorobowa (dobrowolna) 35,33 + wypadkowa 24,08, razem około <b>456,20 zł</b> miesięcznie.</li>
+<li><b>Pełny ZUS</b>: według oficjalnego portalu około <b>1926,76 zł</b> miesięcznie.</li>
+<li>Ulga nie przysługuje, jeśli w ciągu ostatnich 60 miesięcy prowadziłeś inną działalność albo pracujesz dla byłego pracodawcy przy tych samych zadaniach.</li>
+<li>Składka zdrowotna jest płatna osobno i zależy od formy opodatkowania i dochodu. Od 1 lutego 2026 roku minimalna kwota jest wyższa niż dotychczasowe 314,96 zł.</li></ul>
+<div class="warn">W sprawie „ulgi na start” (zwolnienia ze składek społecznych na pierwsze miesiące) i „Małego ZUS plus” warunki nie są tu omówione: zapytaj księgowego lub w ZUS.</div><p class="src">Źródła: <a href="https://zielonalinia.gov.pl/planujesz-otwarcie-dzialalnosci-gospodarczej-sprawdz-jakie-wysokosci-skladek-na-ubezpieczenia-spoleczne-obowiazuja-w-2026-roku/">Zielona Linia: składki 2026</a>, <a href="https://powroty.gov.pl/nizsze-skladki-zus-dla-rozpoczynajacych-dzialalnosc-9798/">powroty.gov.pl: niższe składki ZUS</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Przeanalizuj mój dokument w Telegramie</a></div></details>
+<details class="card guide"><summary><span class="pt b">Mieszkanie</span><h3>Oszuści przy wynajmie</h3><p>Jak rozpoznać i co sprawdzić.</p></summary><div class="gbody"><div class="warn">Tekst to informacja ogólna, sprawdzona z oficjalnymi źródłami 25.11.2026 i nadal przechodzi weryfikację przez specjalistę. Przepisy się zmieniają: przed działaniem sprawdź na gov.pl lub zapytaj specjalistę.</div>
+<h4>Typowy schemat</h4><p>„Właściciel” publikuje atrakcyjne ogłoszenie o mieszkaniu, które do niego nie należy. Kilka osób zaprasza na oglądanie i prosi o kaucję lub zaliczkę bez umowy i bez przekazania kluczy. Po kilku dniach przestaje odpowiadać.</p>
+<h4>Sygnały ostrzegawcze</h4><ul>
+<li>Cena wyraźnie niższa niż rynkowa.</li>
+<li>Presja czasu: „pieniądze dziś, inaczej weźmie ktoś inny”.</li>
+<li>Płatność żądana przed podpisaniem umowy i otrzymaniem kluczy.</li>
+<li>Właściciel nie pokazuje dokumentu potwierdzającego prawo do lokalu i nie chce spotkać się osobiście.</li></ul>
+<h4>Jak się chronić</h4><ul>
+<li>Nie przelewaj kaucji ani zaliczki bez podpisanej umowy najmu i bez kluczy.</li>
+<li>Poproś o potwierdzenie, że osoba ma prawo wynajmować lokal (dokument własności lub pełnomocnictwo).</li>
+<li>Jeśli zostałeś oszukany, zgłoś sprawę na policję i zachowaj korespondencję oraz potwierdzenia przelewów.</li></ul><p class="src">Źródła: <a href="https://bezprawnik.pl/wynajem-mieszkania-oszustwo">Bezprawnik: wynajem mieszkania oszustwo (2018)</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Przeanalizuj mój dokument w Telegramie</a></div></details>
+<details class="card guide"><summary><span class="pt c">PESEL</span><h3>PESEL dla cudzoziemca</h3><p>Co to jest i jak go uzyskać.</p></summary><div class="gbody"><div class="warn">Tekst to informacja ogólna, sprawdzona z oficjalnymi źródłami 25.11.2026 i nadal przechodzi weryfikację przez specjalistę. Przepisy się zmieniają: przed działaniem sprawdź na gov.pl lub zapytaj specjalistę.</div>
+<h4>Najprostsza droga</h4><ul>
+<li>Zameldowanie w miejscu pobytu w Polsce (meldunek) przy pobycie dłuższym niż 30 dni: numer PESEL nadawany jest automatycznie.</li></ul>
+<h4>Jeśli meldunek jest niemożliwy, a numer jest potrzebny</h4><ul>
+<li>Złóż wniosek o nadanie numeru PESEL w urzędzie gminy. We wniosku trzeba podać podstawę, dla której potrzebujesz numeru (np. wymóg ZUS lub urzędu skarbowego).</li>
+<li>Jeśli nie pracujesz lub pracodawca jest za granicą, zgłoś się do Urzędu Dzielnicy Śródmieście w Warszawie.</li>
+<li>Usługa jest bezpłatna. Wniosek można złożyć osobiście lub przez przedstawiciela.</li></ul>
+<div class="warn">Strona Zielonej Linii była aktualizowana w 2020 roku, konkretną procedurę sprawdź w swoim urzędzie gminy.</div><p class="src">Źródła: <a href="https://zielonalinia.gov.pl/pesel-dla-cudzoziemca/">Zielona Linia: PESEL dla cudzoziemca</a>, <a href="https://www.gov.pl/web/gov/uzyskaj-numer-pesel--usluga-dla-cudzoziemcow-en">gov.pl: Get a PESEL</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Przeanalizuj mój dokument w Telegramie</a></div></details>
+</div></div></section>
+
+ <section class="sec" id="pricing"><h2><span class="ua">Ціни</span><span class="ru">Цены</span><span class="pl">Cennik</span></h2><p class="sub"><span class="ua">Спробуйте без ризику.</span><span class="ru">Попробуйте без риска.</span><span class="pl">Wypróbuj bez ryzyka.</span></p>
+  <div class="price"><div class="card"><div class="big">3</div><h3><span class="ua">документи безкоштовно</span><span class="ru">документа бесплатно</span><span class="pl">dokumenty za darmo</span></h3><p><span class="ua">Без банківської картки.</span><span class="ru">Без банковской карты.</span><span class="pl">Bez karty płatniczej.</span></p></div>
+  <div class="card"><div class="big" style="font-size:30px">[?]</div><h3><span class="ua">Далі — підписка або розбір</span><span class="ru">Дальше — подписка или разбор</span><span class="pl">Dalej: subskrypcja lub pojedyncza analiza</span></h3><p><span class="ua">[Ціни будуть оголошені]</span><span class="ru">[Цены будут объявлены]</span><span class="pl">[Ceny zostaną ogłoszone]</span></p></div></div></section>
+
+ <section class="sec" id="experts"><h2><span class="ua">Коли потрібна жива людина</span><span class="ru">Когда нужен живой человек</span><span class="pl">Gdy potrzebny jest żywy człowiek</span></h2>
+  <p class="sub"><span class="ua">Складний випадок? Підкажемо, до кого звернутися. З фахівцем ви домовляєтеся напряму.</span><span class="ru">Сложный случай? Подскажем, к кому обратиться. Со специалистом вы договариваетесь напрямую.</span><span class="pl">Trudny przypadek? Podpowiemy, do kogo się zwrócić. Warunki ustalasz ze specjalistą bezpośrednio.</span></p>
+  <div class="grid sp"><div class="card"><div class="ph">BH</div><h3>Business House Group</h3><p style="font-weight:600;color:var(--ink);margin-bottom:6px"><span class="ua">Документи для іноземців · Познань і онлайн</span><span class="ru">Документы для иностранцев · Познань и онлайн</span><span class="pl">Dokumenty dla cudzoziemców · Poznań i online</span></p><p><span class="ua">Карта CUKR, легалізація перебування, PESEL і реєстрація адреси, документи для авто та водійських прав, допомога із запуском компанії.</span><span class="ru">Карта CUKR, легализация пребывания, PESEL и регистрация адреса, документы для авто и водительских прав, помощь с запуском компании.</span><span class="pl">Karta CUKR, legalizacja pobytu, PESEL i meldunek, dokumenty do samochodu i prawa jazdy, pomoc w założeniu firmy.</span></p><span class="pill">Українська</span><span class="pill">Русский</span><span class="pill">Polski</span><p style="margin-top:16px"><a href="https://business-house-group.com/" style="font-weight:700;color:var(--blue)"><span class="ua">Сайт компанії</span><span class="ru">Сайт компании</span><span class="pl">Strona firmy</span></a></p></div>
+  <div class="card"><div class="ph" style="background:#dcf6ef;color:#168a73">?</div><h3>[<span class="ua">Ім’я фахівця</span><span class="ru">Имя специалиста</span><span class="pl">Imię specjalisty</span>]</h3><p><span class="ua">Бухгалтер · JDG</span><span class="ru">Бухгалтер · JDG</span><span class="pl">Księgowy · JDG</span></p></div>
+  <div class="card"><div class="ph" style="background:#fff1c6;color:#8a6200">?</div><h3>[<span class="ua">Ім’я фахівця</span><span class="ru">Имя специалиста</span><span class="pl">Imię specjalisty</span>]</h3><p><span class="ua">Бухгалтер · spółki</span><span class="ru">Бухгалтер · spółki</span><span class="pl">Księgowy · spółki</span></p></div></div></section>
+
+ <section class="sec" id="request"><div class="req"><div><h2><span class="ua">Розкажіть, що трапилося</span><span class="ru">Расскажите, что случилось</span><span class="pl">Opowiedz, co się stało</span></h2><p><span class="ua">Заявка в Telegram за хвилину. Не надсилайте PESEL та інші чутливі дані: їх обговорите зі спеціалістом особисто.</span><span class="ru">Заявка в Telegram за минуту. Не отправляйте PESEL и другие чувствительные данные: их обсудите со специалистом лично.</span><span class="pl">Zgłoszenie w Telegramie w minutę. Nie podawaj numeru PESEL ani innych danych wrażliwych: omówisz je ze specjalistą osobiście.</span></p></div>
+  <a class="cta" href="https://t.me/BumagiPL_bot?start=request"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.2 2.9 10.4c-.9.3-.9 1.5 0 1.8l4.6 1.5 1.8 5.5c.2.7 1.1.9 1.6.3l2.6-2.8 4.6 3.4c.6.4 1.4.1 1.6-.6L22.9 4.4c.2-.8-.6-1.5-1.4-1.2ZM9.2 13.2l8.6-5.3-6.7 6.4-.3 3.3-1.6-4.4Z"/></svg><span class="ua">Залишити заявку в боті</span><span class="ru">Оставить заявку в боте</span><span class="pl">Zostaw zgłoszenie w bocie</span></a></div>
+  <p class="note" style="margin-top:14px"><a href="#reg-spec" style="text-decoration:underline"><span class="ua">Ви фахівець і хочете приєднатися? Зареєструйтеся як фахівець.</span><span class="ru">Вы специалист и хотите присоединиться? Зарегистрируйтесь как специалист.</span><span class="pl">Jesteś specjalistą i chcesz dołączyć? Zarejestruj się jako specjalista.</span></a></p></section>
+
+ <section class="sec faq" id="faq"><h2 style="margin-bottom:24px"><span class="ua">Часті питання</span><span class="ru">Частые вопросы</span><span class="pl">Częste pytania</span></h2>
+  <details><summary><span class="ua">Це юридична консультація?</span><span class="ru">Это юридическая консультация?</span><span class="pl">Czy to porada prawna?</span></summary><p><span class="ua">Ні. Помічник на основі ШІ перекладає й пояснює документи. Для юридичних і податкових рішень потрібен фахівець.</span><span class="ru">Нет. Помощник на основе ИИ переводит и объясняет документы. Для юридических и налоговых решений нужен специалист.</span><span class="pl">Nie. Asystent oparty na AI tłumaczy i wyjaśnia dokumenty. Do decyzji prawnych i podatkowych potrzebny jest specjalista.</span></p></details>
+  <details><summary><span class="ua">Що з моїми документами?</span><span class="ru">Что с моими документами?</span><span class="pl">Co z moimi dokumentami?</span></summary><p><span class="ua">[Заповнити після консультації з юристом: зберігання в ЄС, термін, видалення за запитом, RODO.]</span><span class="ru">[Заполнить после консультации с юристом: хранение в ЕС, срок, удаление по запросу, RODO.]</span><span class="pl">[Do uzupełnienia po konsultacji z prawnikiem: przechowywanie w UE, okres, usunięcie na żądanie, RODO.]</span></p></details>
+  <details><summary><span class="ua">Скільки це коштує?</span><span class="ru">Сколько это стоит?</span><span class="pl">Ile to kosztuje?</span></summary><p><span class="ua">Три розбори безкоштовно. Далі [умови будуть оголошені].</span><span class="ru">Три разбора бесплатно. Дальше [условия будут объявлены].</span><span class="pl">Trzy analizy za darmo. Dalej [warunki zostaną ogłoszone].</span></p></details>
+  <details><summary><span class="ua">Чи можна довіряти перекладу?</span><span class="ru">Можно ли доверять переводу?</span><span class="pl">Czy można ufać tłumaczeniu?</span></summary><p><span class="ua">Він допомагає зрозуміти суть. Важливі рішення перевіряйте зі спеціалістом.</span><span class="ru">Он помогает понять суть. Важные решения перепроверяйте со специалистом.</span><span class="pl">Pomaga zrozumieć istotę. Ważne decyzje sprawdzaj ze specjalistą.</span></p></details></section>
+
+ <footer class="foot"><div class="cols"><div><b style="color:var(--ink);font-size:18px"><span class="ua">Пані Тека</span><span class="ru">Пани Тека</span><span class="pl">Pani Teka</span></b><p style="max-width:520px"><span class="ua">Сервіс не надає юридичних і бухгалтерських послуг. Фахівці працюють незалежно й укладають договір із клієнтом напряму.</span><span class="ru">Сервис не оказывает юридических и бухгалтерских услуг. Специалисты работают независимо и заключают договор с клиентом напрямую.</span><span class="pl">Serwis nie świadczy usług prawnych ani księgowych. Specjaliści działają niezależnie i zawierają umowę z klientem bezpośrednio.</span></p><p style="opacity:.6;font-size:12px">[<span class="ua">Дані компанії: назва, NIP, адреса</span><span class="ru">Данные компании: название, NIP, адрес</span><span class="pl">Dane firmy: nazwa, NIP, adres</span>]</p></div>
+  <div><a href="https://t.me/BumagiPL_bot">Telegram</a><a href="#"><span class="ua">Політика конфіденційності</span><span class="ru">Политика конфиденциальности</span><span class="pl">Polityka prywatności</span></a><a href="#"><span class="ua">Умови використання</span><span class="ru">Условия использования</span><span class="pl">Regulamin</span></a><a href="#"><span class="ua">Контакти</span><span class="ru">Контакты</span><span class="pl">Kontakt</span></a></div></div></footer>
+</div>
+
+<div class="ovl" id="register"><div class="box"><a class="x" href="#top">✕</a>
+ <h2><span class="ua">Реєстрація</span><span class="ru">Регистрация</span><span class="pl">Rejestracja</span></h2>
+ <p><span class="ua">Оберіть, хто ви. Далі вхід через Telegram, пароль не потрібен.</span><span class="ru">Выберите, кто вы. Дальше вход через Telegram, пароль не нужен.</span><span class="pl">Wybierz, kim jesteś. Dalej logowanie przez Telegram, hasło nie jest potrzebne.</span></p>
+ <div class="role2">
+  <a href="#reg-client"><b><span class="ua">Мені потрібна допомога</span><span class="ru">Мне нужна помощь</span><span class="pl">Potrzebuję pomocy</span></b><span><span class="ua">Розбір документів, нагадування, зв’язок із фахівцем</span><span class="ru">Разбор документов, напоминания, связь со специалистом</span><span class="pl">Analiza dokumentów, przypomnienia, kontakt ze specjalistą</span></span></a>
+  <a href="#reg-spec"><b><span class="ua">Я фахівець</span><span class="ru">Я специалист</span><span class="pl">Jestem specjalistą</span></b><span><span class="ua">Отримувати заявки від клієнтів</span><span class="ru">Получать заявки от клиентов</span><span class="pl">Otrzymywać zgłoszenia od klientów</span></span></a>
+ </div>
+ <p style="font-size:14px;margin-top:18px"><span class="ua">Вже зареєстровані?</span><span class="ru">Уже зарегистрированы?</span><span class="pl">Masz już konto?</span> <a href="https://t.me/BumagiPL_bot?start=login" style="color:var(--blue);font-weight:700"><span class="ua">Увійти</span><span class="ru">Войти</span><span class="pl">Zaloguj się</span></a></p>
+ <div class="roles"><a href="#cab-client"><span class="ua">Демо: кабінет клієнта</span><span class="ru">Демо: кабинет клиента</span><span class="pl">Demo: konto klienta</span></a><a href="#cab-spec"><span class="ua">Демо: кабінет фахівця</span><span class="ru">Демо: кабинет специалиста</span><span class="pl">Demo: konto specjalisty</span></a></div>
+</div></div>
+
+<div class="ovl" id="reg-client"><div class="box"><a class="x" href="#top">✕</a>
+ <a class="back" href="#register">← <span class="ua">Назад</span><span class="ru">Назад</span><span class="pl">Wstecz</span></a>
+ <h2><span class="ua">Реєстрація: клієнт</span><span class="ru">Регистрация: клиент</span><span class="pl">Rejestracja: klient</span></h2>
+ <p><span class="ua">Перший вхід через Telegram створює ваш кабінет. Ми бачимо лише ім’я та username. Номер телефону не передається.</span><span class="ru">Первый вход через Telegram создаёт ваш кабинет. Мы видим только имя и username. Номер телефона не передаётся.</span><span class="pl">Pierwsze logowanie przez Telegram tworzy Twoje konto. Widzimy tylko imię i nazwę użytkownika. Numer telefonu nie jest przekazywany.</span></p>
+ <ul class="chk"><li><span class="ua">3 документи безкоштовно</span><span class="ru">3 документа бесплатно</span><span class="pl">3 dokumenty za darmo</span></li><li><span class="ua">Нагадування про дату відповіді</span><span class="ru">Напоминания о дате ответа</span><span class="pl">Przypomnienia o dacie odpowiedzi</span></li><li><span class="ua">Зв’язок із фахівцем за потреби</span><span class="ru">Связь со специалистом при необходимости</span><span class="pl">Kontakt ze specjalistą w razie potrzeby</span></li></ul>
+ <a class="tg" href="https://t.me/BumagiPL_bot?start=login"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.2 2.9 10.4c-.9.3-.9 1.5 0 1.8l4.6 1.5 1.8 5.5c.2.7 1.1.9 1.6.3l2.6-2.8 4.6 3.4c.6.4 1.4.1 1.6-.6L22.9 4.4c.2-.8-.6-1.5-1.4-1.2ZM9.2 13.2l8.6-5.3-6.7 6.4-.3 3.3-1.6-4.4Z"/></svg><span class="ua">Зареєструватися через Telegram</span><span class="ru">Зарегистрироваться через Telegram</span><span class="pl">Zarejestruj się przez Telegram</span></a>
+</div></div>
+
+<div class="ovl" id="reg-spec"><div class="box"><a class="x" href="#top">✕</a>
+ <a class="back" href="#register">← <span class="ua">Назад</span><span class="ru">Назад</span><span class="pl">Wstecz</span></a>
+ <h2><span class="ua">Реєстрація: фахівець</span><span class="ru">Регистрация: специалист</span><span class="pl">Rejestracja: specjalista</span></h2>
+ <p><span class="ua">Заявки від клієнтів приходять у Telegram. З клієнтом ви домовляєтеся напряму.</span><span class="ru">Заявки от клиентов приходят в Telegram. С клиентом вы договариваетесь напрямую.</span><span class="pl">Zgłoszenia od klientów przychodzą w Telegramie. Warunki ustalasz z klientem bezpośrednio.</span></p>
+ <ol class="chk"><li><span class="ua">Подайте заявку в Telegram-боті: контакт, теми, мови, місто.</span><span class="ru">Подайте заявку в Telegram-боте: контакт, темы, языки, город.</span><span class="pl">Złóż zgłoszenie w bocie Telegram: kontakt, tematy, języki, miasto.</span></li><li><span class="ua">Ми перевіримо заявку й повідомимо рішення.</span><span class="ru">Мы проверим заявку и сообщим решение.</span><span class="pl">Sprawdzimy zgłoszenie i poinformujemy o decyzji.</span></li><li><span class="ua">Після схвалення заявки клієнтів надходитимуть у цей чат.</span><span class="ru">После одобрения заявки клиентов будут приходить в этот чат.</span><span class="pl">Po akceptacji zgłoszenia klientów będą przychodzić na ten czat.</span></li></ol>
+ <p style="font-size:13px"><span class="ua">Важливо відповідати на заявки протягом кількох годин, інакше заявка переходить іншому фахівцю.</span><span class="ru">Важно отвечать на заявки в течение нескольких часов, иначе заявка переходит другому специалисту.</span><span class="pl">Ważne, aby odpowiadać na zgłoszenia w ciągu kilku godzin, w przeciwnym razie zgłoszenie trafia do innego specjalisty.</span></p>
+ <a class="tg" href="https://t.me/BumagiPL_bot?start=apply"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.2 2.9 10.4c-.9.3-.9 1.5 0 1.8l4.6 1.5 1.8 5.5c.2.7 1.1.9 1.6.3l2.6-2.8 4.6 3.4c.6.4 1.4.1 1.6-.6L22.9 4.4c.2-.8-.6-1.5-1.4-1.2ZM9.2 13.2l8.6-5.3-6.7 6.4-.3 3.3-1.6-4.4Z"/></svg><span class="ua">Подати заявку фахівця</span><span class="ru">Подать заявку специалиста</span><span class="pl">Złóż zgłoszenie specjalisty</span></a>
+</div></div>
+
+<div class="ovl" id="cab-client"><div class="box wide"><a class="x" href="#top">✕</a>
+ <span class="demo"><span class="ua">ДЕМО: вигадані дані</span><span class="ru">ДЕМО: вымышленные данные</span><span class="pl">DEMO: dane fikcyjne</span></span>
+ <h2><span class="ua">Кабінет клієнта</span><span class="ru">Кабинет клиента</span><span class="pl">Konto klienta</span></h2><p><span class="ua">Олена К. · @olena_k</span><span class="ru">Олена К. · @olena_k</span><span class="pl">Olena K. · @olena_k</span></p>
+ <div class="cab">
+  <div class="c"><h4><span class="ua">Безкоштовні документи</span><span class="ru">Бесплатные документы</span><span class="pl">Darmowe dokumenty</span></h4><div class="v">1 / 3</div><div class="bar"><i style="width:33%"></i></div></div>
+  <div class="c"><h4><span class="ua">Підписка</span><span class="ru">Подписка</span><span class="pl">Subskrypcja</span></h4><div class="v" style="font-size:20px"><span class="ua">Не активна</span><span class="ru">Не активна</span><span class="pl">Nieaktywna</span></div><p style="font-size:13px"><span class="ua">Ціни будуть оголошені</span><span class="ru">Цены будут объявлены</span><span class="pl">Ceny zostaną ogłoszone</span></p></div>
+  <div class="c full"><h4><span class="ua">Нагадування</span><span class="ru">Напоминания</span><span class="pl">Przypomnienia</span></h4><ul>
+   <li><span><span class="ua">Відповісти до 15.12.2026 · ZUS</span><span class="ru">Ответить до 15.12.2026 · ZUS</span><span class="pl">Odpowiedz do 15.12.2026 · ZUS</span></span><span class="st"><span class="ua">за 20 днів</span><span class="ru">через 20 дней</span><span class="pl">za 20 dni</span></span></li>
+   <li><span><span class="ua">Відповісти до 05.01.2027 · Urząd skarbowy</span><span class="ru">Ответить до 05.01.2027 · Urząd skarbowy</span><span class="pl">Odpowiedz do 05.01.2027 · Urząd skarbowy</span></span><span class="st"><span class="ua">за 41 день</span><span class="ru">через 41 день</span><span class="pl">za 41 dni</span></span></li></ul></div>
+  <div class="c full"><h4><span class="ua">Мої заявки до фахівців</span><span class="ru">Мои заявки к специалистам</span><span class="pl">Moje zgłoszenia do specjalistów</span></h4><ul>
+   <li><span><span class="ua">Міграційні питання · Анна К.</span><span class="ru">Миграционные вопросы · Анна К.</span><span class="pl">Sprawy migracyjne · Anna K.</span></span><span class="st"><span class="ua">в роботі</span><span class="ru">в работе</span><span class="pl">w toku</span></span></li></ul></div>
+ </div>
+ <a class="tg" href="https://t.me/BumagiPL_bot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.3 2.9 10.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-15c.3-1.2-.5-1.8-1.3-1.4zM9 14l9.3-5.9c.4-.3.8-.1.5.2L11 15.4l-.3 3.3z"/></svg><span class="ua">Надіслати документ у Telegram</span><span class="ru">Отправить документ в Telegram</span><span class="pl">Wyślij dokument w Telegramie</span></a>
+</div></div>
+
+<div class="ovl" id="cab-spec"><div class="box wide"><a class="x" href="#top">✕</a>
+ <span class="demo"><span class="ua">ДЕМО: вигадані дані</span><span class="ru">ДЕМО: вымышленные данные</span><span class="pl">DEMO: dane fikcyjne</span></span>
+ <h2><span class="ua">Кабінет фахівця</span><span class="ru">Кабинет специалиста</span><span class="pl">Konto specjalisty</span></h2><p><span class="ua">Анна К. · міграційні питання · UA, RU, PL</span><span class="ru">Анна К. · миграционные вопросы · UA, RU, PL</span><span class="pl">Anna K. · sprawy migracyjne · UA, RU, PL</span></p>
+ <div class="cab">
+  <div class="c"><h4><span class="ua">Нові заявки</span><span class="ru">Новые заявки</span><span class="pl">Nowe zgłoszenia</span></h4><div class="v">2</div></div>
+  <div class="c"><h4><span class="ua">В роботі</span><span class="ru">В работе</span><span class="pl">W toku</span></h4><div class="v">1</div></div>
+  <div class="c full"><h4><span class="ua">Заявки</span><span class="ru">Заявки</span><span class="pl">Zgłoszenia</span></h4><ul>
+   <li><span>#12 · <span class="ua">Міграційні питання · Олександр Т.</span><span class="ru">Миграционные вопросы · Александр Т.</span><span class="pl">Sprawy migracyjne · Oleksandr T.</span></span><span class="st n"><span class="ua">нова</span><span class="ru">новая</span><span class="pl">nowe</span></span></li>
+   <li><span>#11 · <span class="ua">Міграційні питання · Ірина М.</span><span class="ru">Миграционные вопросы · Ирина М.</span><span class="pl">Sprawy migracyjne · Iryna M.</span></span><span class="st n"><span class="ua">нова</span><span class="ru">новая</span><span class="pl">nowe</span></span></li>
+   <li><span>#9 · <span class="ua">Міграційні питання · Олена К.</span><span class="ru">Миграционные вопросы · Олена К.</span><span class="pl">Sprawy migracyjne · Olena K.</span></span><span class="st"><span class="ua">в роботі</span><span class="ru">в работе</span><span class="pl">w toku</span></span></li></ul></div>
+  <div class="c full"><h4><span class="ua">Мій профіль для клієнтів</span><span class="ru">Мой профиль для клиентов</span><span class="pl">Mój profil dla klientów</span></h4><ul>
+   <li><span><span class="ua">Ім’я</span><span class="ru">Имя</span><span class="pl">Imię</span></span><b>Анна К.</b></li>
+   <li><span><span class="ua">Теми</span><span class="ru">Темы</span><span class="pl">Tematy</span></span><b><span class="ua">Міграційні питання</span><span class="ru">Миграционные вопросы</span><span class="pl">Sprawy migracyjne</span></b></li>
+   <li><span><span class="ua">Мови</span><span class="ru">Языки</span><span class="pl">Języki</span></span><b>UA · RU · PL</b></li>
+   <li><span><span class="ua">Де працюю</span><span class="ru">Где работаю</span><span class="pl">Gdzie pracuję</span></span><b>online, Gdańsk</b></li>
+   <li><span><span class="ua">Перша консультація</span><span class="ru">Первая консультация</span><span class="pl">Pierwsza konsultacja</span></span><b><span class="ua">безкоштовно</span><span class="ru">бесплатно</span><span class="pl">bezpłatnie</span></b></li></ul></div>
+ </div>
+</div></div>
+</div>
+
+
+</body>
+</html>
