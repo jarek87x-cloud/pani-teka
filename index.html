@@ -118,7 +118,7 @@ details.guide summary:after{content:"\25BE";display:block;margin-top:10px;font-w
 details.guide[open] summary:after{content:"\25B4"}
 .gbody{margin-top:14px;border-top:1px dashed var(--line);padding-top:14px;cursor:auto;font-size:15px;line-height:1.55}
 .gbody h4{font-size:15px;margin:14px 0 6px;letter-spacing:0}
-.gbody ul{margin:0 0 8px;padding-left:20px}
+.gbody ul,.gbody ol{margin:0 0 8px;padding-left:20px}
 .gbody li{margin-bottom:5px}
 .gbody .warn{background:#fff6dc;border-radius:12px;padding:10px 14px;margin:12px 0;font-size:14px}
 .gbody .src{font-size:12.5px;color:var(--gray);margin-top:12px}
@@ -312,6 +312,32 @@ Wzywa się do uzupełnienia braków formalnych wniosku o udzielenie zezwolenia n
 <li>Якщо ви не працюєте або роботодавець за кордоном, зверніться до Urząd Dzielnicy Śródmieście у Варшаві.</li>
 <li>Послуга безкоштовна. Заяву можна подати особисто або через представника.</li></ul>
 <div class="warn">Сторінка Zielona Linia оновлювалася у 2020 році, конкретну процедуру уточніть у своєму urzędzie gminy.</div><p class="src">Джерела: <a href="https://zielonalinia.gov.pl/pesel-dla-cudzoziemca/">Zielona Linia: PESEL dla cudzoziemca</a>, <a href="https://www.gov.pl/web/gov/uzyskaj-numer-pesel--usluga-dla-cudzoziemcow-en">gov.pl: Get a PESEL</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Розібрати мій документ у Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt d">Профіль</span><h3>Profil Zaufany: як створити</h3><p>Вхід до держпослуг онлайн і підпис документів.</p></summary><div class="gbody"><div class="warn">Текст містить загальну інформацію: його звірено з офіційними джерелами 26.11.2026, але фахівець ще не перевіряв. Правила й способи входу змінюються: перед діями звіряйтеся з pz.gov.pl або запитайте фахівця.</div>
+<h4>Що це і навіщо</h4><p>Profil Zaufany (довірений профіль) — безкоштовний спосіб підтвердити особу на порталах держави: ZUS (PUE), податкова, ePUAP, gov.pl. З ним можна подавати заяви онлайн і підписувати їх довіреним підписом.</p>
+<h4>Що потрібно</h4><ul>
+<li>Номер PESEL і вік від 13 років. Імʼя та прізвище у заявці мають <b>точно збігатися</b> з реєстром PESEL і документом. Якщо імен кілька, вказуйте лише перше.</li>
+<li>Можна мати тільки один профіль.</li>
+<li>Громадяни України з PESEL, які досягли 18 років, можуть підтвердити профіль у urząd gminy або подати заявку онлайн. Інших іноземців офіційна сторінка окремо не описує: якщо сумніваєтеся, запитайте infolinia.</li></ul>
+<h4>Покрокове оформлення (найпоширеніший шлях: заявка онлайн і підтвердження в пункті)</h4><ol>
+<li>Відкрийте офіційний сайт <b>pz.gov.pl</b> і натисніть «Załóż profil zaufany». Адресу вводьте вручну: не переходьте за посиланнями з листів, SMS чи месенджерів.</li>
+<li>Оберіть спосіб підтвердження особи (див. нижче). Якщо обираєте заявку онлайн, заповніть дані так, як у документі.</li>
+<li>Укажіть e-mail і номер телефону, придумайте імʼя користувача та пароль. Для іноземного номера телефону спершу звʼяжіться з infolinia: +48 42 253 54 50 (робочі дні, 7:00–18:00 за польським часом).</li>
+<li>Заявка дійсна <b>30 днів</b>. Підтвердьте її особисто в будь-якому пункті потвердження (понад 2000 у Польщі та за кордоном, список на pz.gov.pl). Візьміть документ: dowód, паспорт або <b>karta pobytu</b>. Підтвердження не надсилають поштою чи e-mail.</li>
+<li>Після підтвердження увійдіть через «Zaloguj się» з іменем користувача та паролем.</li></ol>
+<h4>Інші способи підтвердження</h4><ul>
+<li><b>Банк.</b> Через електронний банкінг (PKO BP, ING, Millennium, Pekao, mBank, Santander, Alior та інші). Список банків обмежений, а якщо вашого немає, оберіть інший спосіб.</li>
+<li><b>e-dowód.</b> Потрібен польський dowód з електронним шаром і телефон або зчитувач з NFC.</li>
+<li><b>Відеорозмова з урядником</b> у Microsoft Teams: потрібен чинний польський dowód або польський паспорт, тож більшості іноземців цей шлях не підходить.</li></ul>
+<h4>Термін дії й вхід</h4><ul>
+<li>Профіль дійсний <b>3 роки</b> від підтвердження. Продовжити можна будь-коли після входу: «Przedłuż ważność».</li>
+<li>Метод підтвердження дій (SMS, push у mObywatel або банк) змінюється в «Ustawienia → Autoryzacja».</li>
+<li>Забули пароль: код для скидання приходить на e-mail.</li>
+<li>Зміни 2026 року: за повідомленнями gov.pl (26.05.2026 і 09.06.2026) тим, хто входив через банк або підтверджував вхід SMS чи push, можуть запропонувати обрати інший спосіб, наприклад імʼя й пароль або e-dowód. Вхід через банк працює, лише якщо банк указано як метод автентифікації. Дату запуску сторінки не називають.</li></ul>
+<h4>Безпека</h4><ul>
+<li>Оформлення й користування профілем безкоштовні. Ніхто не має права брати гроші за створення.</li>
+<li>Ніколи не передавайте пароль і коди з SMS чи push, навіть «співробітнику» з дзвінка або повідомлення.</li>
+<li>Заходьте тільки з pz.gov.pl або gov.pl, а не з посилань у листах.</li></ul>
+<p class="src">Джерела: <a href="https://www.gov.pl/web/profilzaufany/najczesciej-zadawane-pytania2">gov.pl: Profil zaufany, najczęściej zadawane pytania</a>, <a href="https://www.gov.pl/web/cyfryzacja/profil-zaufany">gov.pl: Profil zaufany</a>, <a href="https://www.gov.pl/web/profilzaufany/profil-zaufany-sie-zmienia">gov.pl: Profil Zaufany się zmienia (26.05.2026)</a>, <a href="https://www.gov.pl/web/profilzaufany/wazna-zmiana-w-logowaniu-do-profilu-zaufanego">gov.pl: Ważna zmiana w logowaniu (09.06.2026)</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Розібрати мій документ у Telegram</a></div></details>
 </div></div><div class="ru"><div class="grid"><details class="card guide"><summary><span class="pt a">ZUS</span><h3>Документ из ZUS: что делать</h3><p>Как читать, какие сроки, когда нужна помощь.</p></summary><div class="gbody"><div class="warn">Текст содержит общую информацию: он сверен с официальными источниками 25.11.2026, но специалист его ещё не проверял. Правила меняются: перед действиями сверяйтесь с gov.pl или спросите специалиста.</div>
 <h4>Что сделать сразу</h4><ul>
 <li>Найдите в документе слова <b>decyzja</b> (решение) или <b>wezwanie</b> (требование): от этого зависит, что делать.</li>
@@ -383,7 +409,33 @@ Wzywa się do uzupełnienia braków formalnych wniosku o udzielenie zezwolenia n
 <li>Подайте заявление о присвоении PESEL в urząd gminy. В заявлении нужно указать основание, по которому вам нужен номер (например, требование ZUS или налоговой).</li>
 <li>Если вы не работаете или работодатель за границей, обратитесь в Urząd Dzielnicy Śródmieście в Варшаве.</li>
 <li>Услуга бесплатная. Заявление можно подать лично или через представителя.</li></ul>
-<div class="warn">Страница Zielona Linia обновлялась в 2020 году, конкретную процедуру уточните в своём urzędzie gminy.</div><p class="src">Источники: <a href="https://zielonalinia.gov.pl/pesel-dla-cudzoziemca/">Zielona Linia: PESEL dla cudzoziemca</a>, <a href="https://www.gov.pl/web/gov/uzyskaj-numer-pesel--usluga-dla-cudzoziemcow-en">gov.pl: Get a PESEL</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Разобрать мой документ в Telegram</a></div></details></div></div><div class="pl"><div class="grid"><details class="card guide"><summary><span class="pt a">ZUS</span><h3>Dokument z ZUS: co robić</h3><p>Jak czytać, jakie terminy, kiedy potrzebna pomoc.</p></summary><div class="gbody"><div class="warn">Tekst ma charakter ogólny: został porównany z oficjalnymi źródłami 25.11.2026, ale nie weryfikował go jeszcze specjalista. Przepisy się zmieniają: przed działaniem sprawdź na gov.pl lub zapytaj specjalistę.</div>
+<div class="warn">Страница Zielona Linia обновлялась в 2020 году, конкретную процедуру уточните в своём urzędzie gminy.</div><p class="src">Источники: <a href="https://zielonalinia.gov.pl/pesel-dla-cudzoziemca/">Zielona Linia: PESEL dla cudzoziemca</a>, <a href="https://www.gov.pl/web/gov/uzyskaj-numer-pesel--usluga-dla-cudzoziemcow-en">gov.pl: Get a PESEL</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Разобрать мой документ в Telegram</a></div></details>
+<details class="card guide"><summary><span class="pt d">Профиль</span><h3>Profil Zaufany: как создать</h3><p>Вход в госуслуги онлайн и подпись документов.</p></summary><div class="gbody"><div class="warn">Текст содержит общую информацию: он сверен с официальными источниками 26.11.2026, но специалист его ещё не проверял. Правила и способы входа меняются: перед действиями сверяйтесь с pz.gov.pl или спросите специалиста.</div>
+<h4>Что это и зачем</h4><p>Profil Zaufany (доверенный профиль) — бесплатный способ подтвердить личность на порталах государства: ZUS (PUE), налоговая, ePUAP, gov.pl. С ним можно подавать заявления онлайн и подписывать их доверенной подписью.</p>
+<h4>Что нужно</h4><ul>
+<li>Номер PESEL и возраст от 13 лет. Имя и фамилия в заявке должны <b>точно совпадать</b> с реестром PESEL и документом. Если имён несколько, указывайте только первое.</li>
+<li>Можно иметь только один профиль.</li>
+<li>Совершеннолетние граждане Украины с PESEL могут подтвердить профиль в urząd gminy или подать заявку онлайн. Других иностранцев официальная страница отдельно не описывает: если сомневаетесь, спросите infolinia.</li></ul>
+<h4>Пошаговое оформление (самый распространённый путь: заявка онлайн и подтверждение в пункте)</h4><ol>
+<li>Откройте официальный сайт <b>pz.gov.pl</b> и нажмите «Załóż profil zaufany». Адрес вводите вручную: не переходите по ссылкам из писем, SMS или мессенджеров.</li>
+<li>Выберите способ подтверждения личности (см. ниже). Если выбираете заявку онлайн, заполните данные так, как в документе.</li>
+<li>Укажите e-mail и номер телефона, придумайте имя пользователя и пароль. Для иностранного номера телефона сначала свяжитесь с infolinia: +48 42 253 54 50 (рабочие дни, 7:00–18:00 по польскому времени).</li>
+<li>Заявка действительна <b>30 дней</b>. Подтвердите её лично в любом пункте подтверждения (более 2000 в Польше и за границей, список на pz.gov.pl). Возьмите документ: dowód, паспорт или <b>karta pobytu</b>. Подтверждение не присылают по почте или e-mail.</li>
+<li>После подтверждения войдите через «Zaloguj się» с именем пользователя и паролем.</li></ol>
+<h4>Другие способы подтверждения</h4><ul>
+<li><b>Банк.</b> Через электронный банкинг (PKO BP, ING, Millennium, Pekao, mBank, Santander, Alior и другие). Список банков ограничен, а если вашего нет, выберите другой способ.</li>
+<li><b>e-dowód.</b> Нужен польский dowód с электронным слоем и телефон или считыватель с NFC.</li>
+<li><b>Видеоразговор с чиновником</b> в Microsoft Teams: нужен действующий польский dowód или польский паспорт, поэтому большинству иностранцев этот путь не подходит.</li></ul>
+<h4>Срок действия и вход</h4><ul>
+<li>Профиль действует <b>3 года</b> с момента подтверждения. Продлить можно в любой момент после входа: «Przedłuż ważność».</li>
+<li>Способ подтверждения действий (SMS, push в mObywatel или банк) меняется в «Ustawienia → Autoryzacja».</li>
+<li>Забыли пароль: код для сброса приходит на e-mail.</li>
+<li>Изменения 2026 года: по сообщениям gov.pl (26.05.2026 и 09.06.2026) тем, кто входил через банк или подтверждал вход SMS или push, могут предложить выбрать другой способ, например имя и пароль или e-dowód. Вход через банк работает, только если банк указан как метод авторизации. Дату запуска страницы не называют.</li></ul>
+<h4>Безопасность</h4><ul>
+<li>Оформление и использование профиля бесплатны. Никто не вправе брать деньги за создание.</li>
+<li>Никогда не передавайте пароль и коды из SMS или push, даже «сотруднику» из звонка или сообщения.</li>
+<li>Заходите только с pz.gov.pl или gov.pl, а не по ссылкам из писем.</li></ul>
+<p class="src">Источники: <a href="https://www.gov.pl/web/profilzaufany/najczesciej-zadawane-pytania2">gov.pl: Profil zaufany, najczęściej zadawane pytania</a>, <a href="https://www.gov.pl/web/cyfryzacja/profil-zaufany">gov.pl: Profil zaufany</a>, <a href="https://www.gov.pl/web/profilzaufany/profil-zaufany-sie-zmienia">gov.pl: Profil Zaufany się zmienia (26.05.2026)</a>, <a href="https://www.gov.pl/web/profilzaufany/wazna-zmiana-w-logowaniu-do-profilu-zaufanego">gov.pl: Ważna zmiana w logowaniu (09.06.2026)</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Разобрать мой документ в Telegram</a></div></details></div></div><div class="pl"><div class="grid"><details class="card guide"><summary><span class="pt a">ZUS</span><h3>Dokument z ZUS: co robić</h3><p>Jak czytać, jakie terminy, kiedy potrzebna pomoc.</p></summary><div class="gbody"><div class="warn">Tekst ma charakter ogólny: został porównany z oficjalnymi źródłami 25.11.2026, ale nie weryfikował go jeszcze specjalista. Przepisy się zmieniają: przed działaniem sprawdź na gov.pl lub zapytaj specjalistę.</div>
 <h4>Co zrobić od razu</h4><ul>
 <li>Znajdź w dokumencie słowa <b>decyzja</b> lub <b>wezwanie</b>: od tego zależy, co robić.</li>
 <li>Zapisz datę otrzymania dokumentu i do kiedy trzeba odpowiedzieć, jeśli jest to podane. Zwykle data jest napisana wprost w dokumencie.</li>
@@ -455,6 +507,32 @@ Wzywa się do uzupełnienia braków formalnych wniosku o udzielenie zezwolenia n
 <li>Jeśli nie pracujesz lub pracodawca jest za granicą, zgłoś się do Urzędu Dzielnicy Śródmieście w Warszawie.</li>
 <li>Usługa jest bezpłatna. Wniosek można złożyć osobiście lub przez przedstawiciela.</li></ul>
 <div class="warn">Strona Zielonej Linii była aktualizowana w 2020 roku, konkretną procedurę sprawdź w swoim urzędzie gminy.</div><p class="src">Źródła: <a href="https://zielonalinia.gov.pl/pesel-dla-cudzoziemca/">Zielona Linia: PESEL dla cudzoziemca</a>, <a href="https://www.gov.pl/web/gov/uzyskaj-numer-pesel--usluga-dla-cudzoziemcow-en">gov.pl: Get a PESEL</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Przeanalizuj mój dokument w Telegramie</a></div></details>
+<details class="card guide"><summary><span class="pt d">Profil</span><h3>Profil zaufany: jak założyć</h3><p>Logowanie do e-usług i podpis dokumentów online.</p></summary><div class="gbody"><div class="warn">Tekst ma charakter ogólny: został porównany z oficjalnymi źródłami 26.11.2026, ale nie weryfikował go jeszcze specjalista. Zasady i sposoby logowania się zmieniają: przed działaniem sprawdź na pz.gov.pl lub zapytaj specjalistę.</div>
+<h4>Co to jest i do czego służy</h4><p>Profil zaufany to bezpłatny sposób potwierdzania tożsamości w e-usługach państwa: ZUS (PUE), urząd skarbowy, ePUAP, gov.pl. Pozwala składać wnioski online i podpisywać je podpisem zaufanym.</p>
+<h4>Czego potrzebujesz</h4><ul>
+<li>Numeru PESEL i wieku co najmniej 13 lat. Imię i nazwisko we wniosku muszą <b>dokładnie zgadzać się</b> z rejestrem PESEL i dokumentem. Przy kilku imionach podaj tylko pierwsze.</li>
+<li>Można mieć tylko jeden profil zaufany.</li>
+<li>Pełnoletni obywatele Ukrainy z numerem PESEL mogą potwierdzić profil w urzędzie gminy albo złożyć wniosek online. Zasad dla pozostałych cudzoziemców oficjalna strona osobno nie opisuje: w razie wątpliwości zapytaj na infolinii.</li></ul>
+<h4>Krok po kroku (najczęstsza droga: wniosek online i potwierdzenie w punkcie)</h4><ol>
+<li>Wejdź na oficjalną stronę <b>pz.gov.pl</b> i kliknij „Załóż profil zaufany”. Adres wpisz ręcznie: nie klikaj linków z maili, SMS-ów ani komunikatorów.</li>
+<li>Wybierz sposób potwierdzenia tożsamości (zob. niżej). Przy wniosku online wypełnij dane tak, jak w dokumencie.</li>
+<li>Podaj e-mail i numer telefonu, ustal nazwę użytkownika i hasło. Przy zagranicznym numerze telefonu najpierw skontaktuj się z infolinią: +48 42 253 54 50 (dni robocze, 7:00–18:00 czasu polskiego).</li>
+<li>Wniosek jest ważny <b>30 dni</b>. Potwierdź go osobiście w dowolnym punkcie potwierdzającym (ponad 2000 w Polsce i za granicą, lista na pz.gov.pl). Zabierz dokument: dowód, paszport lub <b>kartę pobytu</b>. Potwierdzenia nie wysyła się pocztą ani e-mailem.</li>
+<li>Po potwierdzeniu zaloguj się przez „Zaloguj się” nazwą użytkownika i hasłem.</li></ol>
+<h4>Inne sposoby potwierdzenia</h4><ul>
+<li><b>Bank.</b> Przez bankowość elektroniczną (PKO BP, ING, Millennium, Pekao, mBank, Santander, Alior i inne). Lista banków jest ograniczona, a jeśli Twojego nie ma, wybierz inny sposób.</li>
+<li><b>e-dowód.</b> Potrzebny dowód z warstwą elektroniczną i telefon lub czytnik z NFC.</li>
+<li><b>Rozmowa wideo z urzędnikiem</b> w Microsoft Teams: wymagany ważny polski dowód lub polski paszport, więc dla większości cudzoziemców ta droga odpada.</li></ul>
+<h4>Ważność i logowanie</h4><ul>
+<li>Profil jest ważny <b>3 lata</b> od potwierdzenia. Można go przedłużyć w dowolnym momencie po zalogowaniu: „Przedłuż ważność”.</li>
+<li>Metodę autoryzacji (SMS, powiadomienie push w mObywatelu lub bank) zmienisz w „Ustawienia → Autoryzacja”.</li>
+<li>Hasło resetujesz kodem wysłanym na e-mail.</li>
+<li>Zmiany w 2026 roku: według komunikatów gov.pl (26.05.2026 i 09.06.2026) osoby, które logowały się przez bank lub potwierdzały logowanie SMS-em albo push, mogą zostać poproszone o wybór innej metody, np. nazwy użytkownika i hasła albo e-dowodu. Logowanie bankiem działa tylko wtedy, gdy bank jest ustawiony jako metoda autoryzacji. Daty wdrożenia strona nie podaje.</li></ul>
+<h4>Bezpieczeństwo</h4><ul>
+<li>Założenie i korzystanie z profilu są bezpłatne. Nikt nie może pobierać opłat za założenie.</li>
+<li>Nigdy nie podawaj hasła ani kodów z SMS-a lub push, nawet „pracownikowi” z telefonu czy wiadomości.</li>
+<li>Loguj się tylko przez pz.gov.pl lub gov.pl, a nie przez linki z wiadomości.</li></ul>
+<p class="src">Źródła: <a href="https://www.gov.pl/web/profilzaufany/najczesciej-zadawane-pytania2">gov.pl: Profil zaufany, najczęściej zadawane pytania</a>, <a href="https://www.gov.pl/web/cyfryzacja/profil-zaufany">gov.pl: Profil zaufany</a>, <a href="https://www.gov.pl/web/profilzaufany/profil-zaufany-sie-zmienia">gov.pl: Profil Zaufany się zmienia (26.05.2026)</a>, <a href="https://www.gov.pl/web/profilzaufany/wazna-zmiana-w-logowaniu-do-profilu-zaufanego">gov.pl: Ważna zmiana w logowaniu (09.06.2026)</a></p><a class="cta" href="https://t.me/BumagiPL_bot">Przeanalizuj mój dokument w Telegramie</a></div></details>
 </div></div></section>
 
  <section class="sec" id="pricing"><h2><span class="ua">Ціни</span><span class="ru">Цены</span><span class="pl">Cennik</span></h2><p class="sub"><span class="ua">Спробуйте без ризику.</span><span class="ru">Попробуйте без риска.</span><span class="pl">Wypróbuj bez ryzyka.</span></p>
